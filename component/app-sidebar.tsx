@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { GraduationCap, CalendarDays, Image, MessageCircle, Home } from "lucide-react"
+import { GraduationCap, CalendarDays, MessageCircle, Home } from "lucide-react"
 
 export default function SidebarWisuda() {
   return (
@@ -31,11 +31,6 @@ export default function SidebarWisuda() {
         <Link href="#schedule" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition">
           <CalendarDays size={18} />
           Jadwal Acara
-        </Link>
-
-        <Link href="#gallery" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition">
-          <Image size={18} />
-          Galeri
         </Link>
 
         <Link href="#wishes" className="flex items-center gap-3 p-3 rounded-lg hover:bg-blue-600 transition">
