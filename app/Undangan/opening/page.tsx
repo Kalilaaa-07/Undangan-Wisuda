@@ -66,7 +66,6 @@ export default function Home() {
           >
             Open Invitation
           </button>
-
         </div>
       </main>
     );
@@ -100,6 +99,7 @@ export default function Home() {
       </p>
     </main>
 
+    {/* Navbar bawah */}
     <BottomNav />
   </>
 );

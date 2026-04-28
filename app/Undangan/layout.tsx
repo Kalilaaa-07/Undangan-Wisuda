@@ -1,4 +1,4 @@
-import SidebarWisuda from "@/component/app-sidebar"
+import SidebarWisuda from "@/component/BottonNav"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
