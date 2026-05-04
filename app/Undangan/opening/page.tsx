@@ -1,106 +1,57 @@
 "use client";
 
-import { useState } from "react";
 import BottomNav from "@/components/BottonNav";
 
-export default function Home() {
-  const [open, setOpen] = useState(false);
-
-  if (!open) {
-    return (
+export default function OpeningPage() {
+  return (
+    <>
       <main
-        className="flex min-h-screen items-center justify-center text-center px-6"
+        className="min-h-screen flex flex-col items-center justify-center text-center px-6 pb-24"
         style={{
-          background: "linear-gradient(180deg,#FFF176 0%, #FFE45E 100%)",
+          background:
+            "linear-gradient(180deg, #3a0c10 0%, #6e1a22 50%, #9f2f2f 100%)",
         }}
       >
-        <div className="max-w-md">
+        <div className="w-full max-w-4xl">
 
-          <h2
-            className="text-4xl font-semibold mb-6"
-            style={{ color: "#1E63B5" }}
-          >
-            Undangan Wisuda
-          </h2>
+          {/* LABEL */}
+          <p className="tracking-[0.4em] text-white/60 text-sm mb-6">
+            UNDANGAN WISUDA
+          </p>
 
-          <h1
-            className="text-4xl font-bold mb-2"
-            style={{ color: "#0D3B66" }}
-          >
-            Victorious Day
+          {/* TITLE SUPER BESAR */}
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif text-white leading-[1.1] mb-6">
+            Selamat Datang<br /> 
           </h1>
 
-          <p className="mb-2 text-lg" style={{ color: "#0D3B66" }}>
-            SMK TELKOM MALANG
+          {/* SUB */}
+          <p className="text-xl md:text-2xl text-white/80 leading-relaxed max-w-2xl mx-auto">
+            Kami dengan bangga mengundang Anda untuk menghadiri acara
           </p>
 
-          <p className="mb-2" style={{ color: "#0D3B66" }}>
-            Angkatan 32
+          {/* HIGHLIGHT */}
+          <p className="mt-4 text-2xl md:text-3xl font-semibold text-white">
+            Wisuda SMK Telkom Malang Angkatan 32
           </p>
 
-          <p
-            className="font-bold text-xl mb-8"
-            style={{ color: "#1E63B5", letterSpacing: "3px" }}
-          >
-            LUMINEX
+          {/* LINE */}
+          <div className="w-32 h-[2px] bg-white/40 mx-auto my-8" />
+
+          {/* DESC */}
+          <p className="text-lg md:text-xl text-white/80 leading-relaxed max-w-xl mx-auto">
+            Bersama kita rayakan perjalanan dan pencapaian
+            generasi
           </p>
 
-          <p className="mb-1" style={{ color: "#0D3B66" }}>
-            Kepada Yth.
-          </p>
+          {/* TITLE SUPER BESAR */}
+          <h1 className="text-4xl md:text-4xl lg:text-8xl font-serif text-white leading-[1.1] mb-6">
+            LUMINEX<br /> 
+          </h1>
 
-          <p
-            className="font-semibold mb-10"
-            style={{ color: "#1E63B5" }}
-          >
-            Nama Tamu
-          </p>
-
-          <button
-            onClick={() => setOpen(true)}
-            className="px-8 py-3 rounded-full font-semibold shadow-lg transition hover:scale-105"
-            style={{
-              background: "#1E63B5",
-              color: "white",
-            }}
-          >
-            Open Invitation
-          </button>
         </div>
       </main>
-    );
-  }
 
-  return (
-  <>
-    <main
-      className="flex min-h-screen flex-col items-center justify-center text-center px-6 pb-24"
-      style={{
-        background: "#FFE45E",
-      }}
-    >
-      <h1
-        className="text-4xl font-bold mb-4"
-        style={{ color: "#1E63B5" }}
-      >
-        Selamat Datang 🎓
-      </h1>
-
-      <p
-        className="max-w-md text-lg"
-        style={{ color: "#0D3B66" }}
-      >
-        Kami dengan bangga mengundang Anda untuk menghadiri acara
-        <b> Wisuda SMK Telkom Malang Angkatan 32</b>.
-        <br />
-        <br />
-        Bersama kita rayakan perjalanan dan pencapaian
-        generasi <b>Luminex</b>.
-      </p>
-    </main>
-
-    {/* Navbar bawah */}
-    <BottomNav />
-  </>
-);
+      <BottomNav />
+    </>
+  );
 }

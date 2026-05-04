@@ -1,36 +1,40 @@
-"use client"
+"use client";
 
-import { Home, Calendar, BookOpen, Clock, MapPin } from "lucide-react"
+import Link from "next/link";
+import { Home, Calendar, BookOpen, Clock, MapPin } from "lucide-react";
 
 export default function BottomNav() {
-  return (
-    <div className="fixed bottom-0 left-0 w-full bg-[#6b0f1a] text-white flex justify-around py-3 rounded-t-3xl">
+  const navItem =
+    "flex flex-col items-center text-xs cursor-pointer hover:opacity-80";
 
-      <div className="flex flex-col items-center text-xs">
+  return (
+    <div className="fixed bottom-0 left-0 w-full bg-[#6b0f1a] text-white flex justify-around py-3 rounded-t-3xl shadow-lg z-50">
+
+      <Link href="/Undangan/opening" className={navItem}>
         <Home size={20} />
         <span>Opening</span>
-      </div>
+      </Link>
 
-      <div className="flex flex-col items-center text-xs">
+      <Link href="/Undangan/acara" className={navItem}>
         <Calendar size={20} />
         <span>Acara</span>
-      </div>
+      </Link>
 
-      <div className="flex flex-col items-center text-xs">
+      <Link href="/Undangan/rsvp" className={navItem}>
         <BookOpen size={20} />
-        <span>Panduan</span>
-      </div>
+        <span>RSVP</span>
+      </Link>
 
-      <div className="flex flex-col items-center text-xs">
+      <Link href="/Undangan/rundown" className={navItem}>
         <Clock size={20} />
         <span>Rundown</span>
-      </div>
+      </Link>
 
-      <div className="flex flex-col items-center text-xs">
+      <Link href="/Undangan/maps" className={navItem}>
         <MapPin size={20} />
         <span>Maps</span>
-      </div>
+      </Link>
 
     </div>
-  )
+  );
 }

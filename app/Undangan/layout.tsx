@@ -1,15 +1,13 @@
-import SidebarWisuda from "@/components/BottonNav"
-
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function UndanganLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <div className="flex min-h-screen">
-
-      <SidebarWisuda />
-
-      <main className="flex-1 ml-64 p-6">
+    <div className="min-h-screen flex flex-col">
+      <main className="flex-1 pb-24">
         {children}
       </main>
-
     </div>
-  )
+  );
 }
