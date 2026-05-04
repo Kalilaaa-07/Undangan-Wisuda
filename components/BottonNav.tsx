@@ -8,8 +8,7 @@ export default function BottomNav() {
     "flex flex-col items-center text-xs cursor-pointer hover:opacity-80";
 
   return (
-    <div className="fixed bottom-0 left-0 w-full bg-[#6b0f1a] text-white flex justify-around py-3 rounded-t-3xl shadow-lg z-50">
-
+    <div className="fixed bottom-0 left-0 w-full bg-[#1e5aa8] text-white flex justify-around py-3 rounded-t-3xl shadow-lg z-50 border-t border-white/10">
       <Link href="/Undangan/opening" className={navItem}>
         <Home size={20} />
         <span>Opening</span>

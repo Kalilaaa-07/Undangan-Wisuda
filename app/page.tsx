@@ -1,95 +1,74 @@
 "use client";
 
 import { useState } from "react";
-import BottomNav from "@/components/BottonNav"; 
+import Link from "next/link";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
 
-  
   if (!open) {
     return (
-      <main className="min-h-screen flex items-center justify-center px-6 bg-[#800020]">
+      <main className="relative min-h-screen flex items-center justify-center bg-[#0c3c78] px-6 overflow-hidden">
 
-        <div className="bg-white rounded-2xl shadow-2xl p-10 max-w-md w-full text-center relative overflow-hidden">
+        {/* BACKGROUND EFFECT (biar sama kayak RSVP subtle glow) */}
+        <div className="absolute top-[-100px] left-[-100px] w-[250px] h-[250px] bg-yellow-300/10 blur-[120px]" />
+        <div className="absolute bottom-[-120px] right-[-100px] w-[250px] h-[250px] bg-yellow-300/10 blur-[120px]" />
 
-          {/* TOP DECOR */}
-          <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-[#800020]/20 to-transparent" />
+        {/* CARD */}
+        <div
+          className="w-full max-w-md rounded-2xl p-8 text-center relative"
+          style={{
+            background: "linear-gradient(145deg, #0a2f60, #0e4a96)",
+            border: "1px solid rgba(255,215,0,0.2)",
+            boxShadow: "0 4px 25px rgba(0,0,0,0.4)",
+          }}
+        >
 
-          {/* TITLE */}
-          <h2 className="text-sm tracking-[0.3em] text-[#800020] mb-2">
+          {/* HEADER */}
+          <p className="tracking-[0.4em] text-yellow-300/70 text-[10px] mb-3">
             UNDANGAN
-          </h2>
+          </p>
 
-          <h1 className="text-4xl font-serif text-[#800020] mb-6">
+          <h1 className="text-4xl font-serif text-white">
             Wisuda
           </h1>
 
-          {/* CONTENT */}
-          <h3 className="text-lg font-semibold text-gray-800">
-            SMK TELKOM MALANG
-          </h3>
+          <div className="w-12 h-[2px] bg-yellow-300 mx-auto mt-4 mb-6" />
 
-          <p className="text-gray-600 mt-1">
+          {/* CONTENT */}
+          <h2 className="text-lg font-semibold text-white">
+            SMK TELKOM MALANG
+          </h2>
+
+          <p className="text-white/60 text-sm mt-1">
             Angkatan 32
           </p>
 
-          <p className="text-[#800020] font-bold mt-3 tracking-widest">
+          {/* BADGE */}
+          <div className="mt-3 inline-block px-4 py-1 rounded-full border border-yellow-300/40 text-yellow-300 text-xs tracking-widest">
             LUMINEX
-          </p>
-
-          {/* DIVIDER */}
-          <div className="w-16 h-[2px] bg-[#800020] mx-auto my-6" />
+          </div>
 
           {/* TEXT */}
-          <p className="text-gray-600 text-sm leading-relaxed">
+          <p className="text-white/60 text-sm leading-relaxed mt-6">
             Dengan hormat, kami mengundang Anda untuk menghadiri acara wisuda
             sebagai bentuk perayaan atas pencapaian generasi terbaik kami.
           </p>
 
           {/* BUTTON */}
-          <button
-            onClick={() => setOpen(true)}
-            className="mt-8 px-8 py-3 rounded-full font-semibold shadow-lg transition hover:scale-105 bg-[#800020] text-white"
+          <Link
+            href="/Undangan/opening"
+            className="mt-8 inline-flex items-center justify-center w-full gap-2 bg-yellow-300 text-[#0c3c78] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-200 active:scale-95 transition-all text-sm tracking-wide"
           >
-            Buka Undangan
-          </button>
+            ✨ Buka Undangan
+          </Link>
 
-          {/* BOTTOM DECOR */}
-          <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#800020]/20 to-transparent" />
-
+          {/* FOOTER */}
+          <p className="text-yellow-300/60 text-[10px] tracking-widest mt-6">
+            LUMINEX · ANGKATAN 32
+          </p>
         </div>
       </main>
     );
   }
-
-  // =========================
-  // 🟢 SETELAH DIBUKA
-  // =========================
-  return (
-    <>
-      <main className="min-h-screen flex flex-col items-center justify-center text-center px-6 pb-24 bg-gradient-to-b from-[#800020] to-[#a52a2a]">
-
-        <div className="bg-white rounded-2xl shadow-xl p-8 max-w-xl w-full">
-
-          <h1 className="text-3xl md:text-4xl font-serif mb-4 text-[#800020]">
-            Selamat Datang 🎓
-          </h1>
-
-          <p className="text-gray-700 leading-relaxed">
-            Kami dengan bangga mengundang Anda untuk menghadiri acara
-            <b> Wisuda SMK Telkom Malang Angkatan 32</b>.
-            <br /><br />
-            Mari bersama kita rayakan perjalanan dan pencapaian
-            generasi <b>Luminex</b> dalam momen istimewa ini.
-          </p>
-
-        </div>
-
-      </main>
-
-      {/* NAVBAR */}
-      <BottomNav />
-    </>
-  );
 }
