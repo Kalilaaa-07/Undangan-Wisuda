@@ -1,74 +1,103 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
+import { useRef } from "react";
 
 export default function Home() {
-  const [open, setOpen] = useState(false);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
-  if (!open) {
-    return (
-      <main className="relative min-h-screen flex items-center justify-center bg-[#0c3c78] px-6 overflow-hidden">
+  return (
+    <main className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 overflow-hidden bg-[#0c3c78]">
 
-        {/* BACKGROUND EFFECT (biar sama kayak RSVP subtle glow) */}
-        <div className="absolute top-[-100px] left-[-100px] w-[250px] h-[250px] bg-yellow-300/10 blur-[120px]" />
-        <div className="absolute bottom-[-120px] right-[-100px] w-[250px] h-[250px] bg-yellow-300/10 blur-[120px]" />
+      {/* ===== AUDIO ===== */}
+      <audio
+        ref={audioRef}
+        src="/Lomba Sihir - Ribuan Memori (Official Lyric Video) (1).mp3"
+        loop
+      />
 
-        {/* CARD */}
-        <div
-          className="w-full max-w-md rounded-2xl p-8 text-center relative"
-          style={{
-            background: "linear-gradient(145deg, #0a2f60, #0e4a96)",
-            border: "1px solid rgba(255,215,0,0.2)",
-            boxShadow: "0 4px 25px rgba(0,0,0,0.4)",
-          }}
-        >
+      {/* ===== BUTTON MUSIC ===== */}
+      <button
+        onClick={() => audioRef.current?.play()}
+        className="fixed top-5 right-5 z-50
+        bg-white/10 backdrop-blur-md
+        border border-white/20
+        text-white px-4 py-2 rounded-full
+        hover:bg-white/20 transition-all"
+      >
+        🎵 Music
+      </button>
 
-          {/* HEADER */}
-          <p className="tracking-[0.4em] text-yellow-300/70 text-[10px] mb-3">
-            UNDANGAN
-          </p>
+      {/* ===== LUMI BACKGROUND GLOW ===== */}
+      <img
+        src="/lumi1.png"
+        alt="Lumi"
+        className="pointer-events-none absolute inset-0 m-auto w-[220px] sm:w-[320px] md:w-[420px] opacity-40 blur-sm z-0 animate-float"
+      />
 
-          <h1 className="text-4xl font-serif text-white">
-            Wisuda
-          </h1>
+      {/* ===== OVERLAY ===== */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#0c3c78]/95 via-transparent to-[#0c3c78]/95 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0c3c78]/70 via-transparent to-[#0c3c78]/80 z-10" />
 
-          <div className="w-12 h-[2px] bg-yellow-300 mx-auto mt-4 mb-6" />
+      {/* ===== CONTENT ===== */}
+      <div className="relative z-20 flex flex-col items-center max-w-xl">
 
-          {/* CONTENT */}
-          <h2 className="text-lg font-semibold text-white">
-            SMK TELKOM MALANG
-          </h2>
+        <p className="tracking-[0.4em] text-yellow-300/70 text-[10px] mb-4">
+          UNDANGAN
+        </p>
 
-          <p className="text-white/60 text-sm mt-1">
-            Angkatan 32
-          </p>
+        <h1 className="text-5xl sm:text-6xl font-serif text-white drop-shadow-lg">
+          Wisuda
+        </h1>
 
-          {/* BADGE */}
-          <div className="mt-3 inline-block px-4 py-1 rounded-full border border-yellow-300/40 text-yellow-300 text-xs tracking-widest">
-            LUMINEX
-          </div>
+        <div className="w-14 h-[2px] bg-yellow-300 mt-5 mb-7" />
 
-          {/* TEXT */}
-          <p className="text-white/60 text-sm leading-relaxed mt-6">
-            Dengan hormat, kami mengundang Anda untuk menghadiri acara wisuda
-            sebagai bentuk perayaan atas pencapaian generasi terbaik kami.
-          </p>
+        <h2 className="text-2xl sm:text-3xl font-semibold text-white">
+          SMK TELKOM MALANG
+        </h2>
 
-          {/* BUTTON */}
-          <Link
-            href="/Undangan/opening"
-            className="mt-8 inline-flex items-center justify-center w-full gap-2 bg-yellow-300 text-[#0c3c78] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-yellow-200 active:scale-95 transition-all text-sm tracking-wide"
-          >
-            ✨ Buka Undangan
-          </Link>
+        <p className="text-white/70 text-sm sm:text-base mt-2">
+          Angkatan 32
+        </p>
 
-          {/* FOOTER */}
-          <p className="text-yellow-300/60 text-[10px] tracking-widest mt-6">
-            LUMINEX · ANGKATAN 32
-          </p>
+        <div className="mt-5 inline-block px-5 py-2 rounded-full border border-yellow-300/40 text-yellow-300 text-sm tracking-[0.3em]">
+          LUMINEX
         </div>
-      </main>
-    );
-  }
+
+        <p className="text-white/75 text-sm sm:text-base leading-relaxed mt-8 max-w-md">
+          Dengan hormat, kami mengundang Anda untuk menghadiri acara wisuda
+          sebagai bentuk perayaan atas pencapaian generasi terbaik kami.
+        </p>
+
+        <Link
+          href="/Undangan/opening"
+          className="mt-10 inline-flex items-center justify-center gap-2 bg-yellow-300 text-[#0c3c78] font-semibold px-8 py-4 rounded-full shadow-xl hover:bg-yellow-200 active:scale-95 transition-all text-sm tracking-wide"
+        >
+          ✨ Buka Undangan
+        </Link>
+
+        <p className="text-yellow-300/60 text-[10px] tracking-[0.3em] mt-10">
+          LUMINEX · ANGKATAN 32
+        </p>
+
+      </div>
+
+      {/* ===== STYLE ===== */}
+      <style>{`
+        @keyframes float {
+          0%,100% {
+            transform: translateY(0px);
+          }
+
+          50% {
+            transform: translateY(-10px);
+          }
+        }
+
+        .animate-float {
+          animation: float 4s ease-in-out infinite;
+        }
+      `}</style>
+    </main>
+  );
 }
