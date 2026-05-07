@@ -1,7 +1,13 @@
 "use client";
 
-import BottomNav from "@/components/BottonNav";
+import {
+  Clock3,
+  Sparkles,
+} from "lucide-react";
 
+import BottomNav from "@/components/BottonNav"
+
+/* ===== DATA ===== */
 const rundownData = [
   {
     waktu: "07.30 - 08.00",
@@ -30,84 +36,248 @@ const rundownData = [
   },
 ];
 
-const cardStyle: React.CSSProperties = {
-  background: "linear-gradient(145deg, #0a2f60, #0e4a96)",
-  border: "1px solid rgba(255,215,0,0.2)",
-  boxShadow: "0 4px 20px rgba(0,0,0,0.3)",
-};
-
 export default function RundownPage() {
   return (
     <>
-      <main className="relative min-h-screen flex flex-col items-center bg-[#0c3c78] pb-28 overflow-x-hidden">
+      <main className="relative min-h-screen overflow-hidden bg-[#071f3d] pb-32 text-white">
 
-        {/* ===== TOP HEADER ===== */}
-        <div className="relative w-full bg-[#0a2f60] pt-10 pb-14 px-4 flex flex-col items-center shadow-lg">
-          <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-yellow-300/60" />
-          <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-yellow-300/60" />
+        {/* ===== BACKGROUND ===== */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, #1450a8 0%, #0c3c78 40%, #071f3d 100%)",
+          }}
+        />
 
-          <p className="tracking-[0.4em] text-yellow-300/70 text-[10px] sm:text-xs mb-3">
-            LUMINEX · ANGKATAN 32
-          </p>
-          <h1 className="text-3xl sm:text-4xl font-serif text-white drop-shadow-md">
-            Rundown Acara
-          </h1>
-          <div className="w-12 h-[2px] bg-yellow-300 mx-auto mt-4" />
-          <p className="mt-3 text-sm text-white/60 tracking-wide">
-            Susunan kegiatan acara wisuda
-          </p>
+        {/* ===== GLOW ===== */}
+        <div
+          className="absolute left-1/2 top-24 z-[1] h-80 w-80 -translate-x-1/2 rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,215,0,0.18) 0%, transparent 70%)",
+          }}
+        />
 
-          <svg className="absolute -bottom-[1px] left-0 w-full" viewBox="0 0 1440 40" preserveAspectRatio="none">
-            <path d="M0,40 C360,0 1080,0 1440,40 L1440,40 L0,40 Z" fill="#0c3c78" />
-          </svg>
-        </div>
+        {/* ===== SPARKLES ===== */}
+        <div className="absolute left-10 top-28 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
-        {/* ===== TIMELINE ===== */}
-        <div className="w-full max-w-sm sm:max-w-md px-4 sm:px-0 mt-8 relative">
+        <div className="absolute right-10 top-40 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
-          {/* VERTICAL LINE */}
-          <div
-            className="absolute left-[27px] sm:left-[27px] top-0 bottom-0 w-[2px]"
-            style={{ background: "linear-gradient(to bottom, rgba(255,215,0,0.6), rgba(255,215,0,0.1))" }}
-          />
+        {/* ===== CONTENT ===== */}
+        <div className="relative z-10 mx-auto max-w-md px-4 pt-10">
 
-          {rundownData.map((item, i) => (
-            <div key={i} className="flex items-start gap-4 mb-6 relative">
+          {/* ===== HEADER ===== */}
+          <div className="text-center">
 
-              {/* DOT */}
-              <div
-                className="w-9 h-9 shrink-0 rounded-full flex items-center justify-center text-[#0c3c78] text-sm font-bold z-10 shadow-lg"
-                style={{ background: "linear-gradient(135deg, #fde68a, #f59e0b)" }}
-              >
-                {i + 1}
-              </div>
+            <p
+              className="text-[10px] text-yellow-300/70"
+              style={{
+                letterSpacing: "0.45em",
+                fontFamily: "serif",
+              }}
+            >
+              ✦ LUMINEX · ANGKATAN 32 ✦
+            </p>
 
-              {/* CARD */}
-              <div className="flex-1 rounded-2xl p-4 sm:p-5" style={cardStyle}>
+            <h1
+              className="mt-4 text-white"
+              style={{
+                fontFamily:
+                  "'Playfair Display', serif",
+                fontSize:
+                  "clamp(52px, 10vw, 88px)",
+                fontWeight: 900,
+                lineHeight: 0.95,
+                textShadow:
+                  "0 0 30px rgba(255,255,255,0.18)",
+              }}
+            >
+              Rundown
+              <br />
+              Acara
+            </h1>
 
-                <div className="flex items-center gap-2 mb-2">
-                  <div className="w-1 h-5 bg-yellow-300 rounded-full" />
-                  <p className="text-yellow-300/80 text-[10px] tracking-[0.25em] uppercase">
-                    {item.waktu}
-                  </p>
+            <p className="mt-5 text-sm leading-relaxed text-white/70">
+              Susunan kegiatan acara
+              <br />
+              Wisuda LUMINEX
+            </p>
+
+            <Divider />
+          </div>
+
+          {/* ===== TIMELINE ===== */}
+          <div className="relative mt-10">
+
+            {/* LINE */}
+            <div
+              className="absolute left-[19px] top-0 bottom-0 w-px"
+              style={{
+                background:
+                  "linear-gradient(to bottom, rgba(255,215,0,0.7), rgba(255,215,0,0.1))",
+              }}
+            />
+
+            <div className="space-y-6">
+
+              {rundownData.map((item, i) => (
+                <div
+                  key={i}
+                  className="relative flex gap-4"
+                >
+
+                  {/* ===== DOT ===== */}
+                  <div className="relative z-10 flex h-10 w-10 min-w-[40px] items-center justify-center rounded-full border border-yellow-300/30 bg-yellow-300 text-sm font-bold text-[#071f3d] shadow-[0_0_20px_rgba(255,215,0,0.3)]">
+
+                    {i + 1}
+
+                  </div>
+
+                  {/* ===== CARD ===== */}
+                  <div
+                    className="flex-1 overflow-hidden rounded-[28px] border border-yellow-300/20 p-5 backdrop-blur-xl"
+                    style={{
+                      background:
+                        "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))",
+                      boxShadow:
+                        "0 0 40px rgba(0,0,0,0.2)",
+                    }}
+                  >
+
+                    {/* ===== TOP ===== */}
+                    <div className="flex items-center gap-3">
+
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-yellow-300/20 bg-yellow-300/10">
+
+                        <Clock3
+                          size={18}
+                          className="text-yellow-300"
+                        />
+
+                      </div>
+
+                      <div>
+
+                        <p
+                          className="text-[10px] text-yellow-300/80"
+                          style={{
+                            letterSpacing:
+                              "0.28em",
+                          }}
+                        >
+                          {item.waktu}
+                        </p>
+
+                        <h2
+                          className="mt-1 text-white"
+                          style={{
+                            fontFamily:
+                              "'Playfair Display', serif",
+                            fontSize:
+                              "clamp(24px, 5vw, 34px)",
+                            lineHeight: 1.1,
+                          }}
+                        >
+                          {item.acara}
+                        </h2>
+
+                      </div>
+
+                    </div>
+
+                    {/* ===== DESC ===== */}
+                    <p className="mt-4 text-sm leading-7 text-white/70">
+
+                      {item.desc}
+
+                    </p>
+
+                  </div>
+
                 </div>
+              ))}
 
-                <h2 className="text-base sm:text-lg font-serif text-white">
-                  {item.acara}
-                </h2>
-
-                <p className="text-white/55 text-sm mt-1 leading-relaxed">
-                  {item.desc}
-                </p>
-
-              </div>
             </div>
-          ))}
+
+          </div>
+
+          {/* ===== BOTTOM ===== */}
+          <div className="mt-14 flex justify-center gap-4">
+
+            {["✦", "✧", "⋆", "✧", "✦"].map(
+              (s, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: 18,
+                    textShadow:
+                      "0 0 10px rgba(255,215,0,0.8)",
+                    animation: `float 2.5s ease-in-out ${
+                      i * 0.2
+                    }s infinite`,
+                    color:
+                      i % 2 === 1
+                        ? "#ffffff"
+                        : "#ffd700",
+                  }}
+                >
+                  {s}
+                </span>
+              )
+            )}
+
+          </div>
 
         </div>
+
+        {/* ===== STYLE ===== */}
+        <style jsx>{`
+          @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+
+          @keyframes float {
+            0%,
+            100% {
+              transform: translateY(0px);
+            }
+
+            50% {
+              transform: translateY(-8px);
+            }
+          }
+        `}</style>
       </main>
 
       <BottomNav />
     </>
+  );
+}
+
+/* ===== DIVIDER ===== */
+function Divider() {
+  return (
+    <div className="my-7 flex items-center justify-center gap-3">
+
+      <div
+        className="h-px w-20"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, rgba(255,215,0,0.7))",
+        }}
+      />
+
+      <span className="text-xs text-yellow-400">
+        ◆
+      </span>
+
+      <div
+        className="h-px w-20"
+        style={{
+          background:
+            "linear-gradient(to left, transparent, rgba(255,215,0,0.7))",
+        }}
+      />
+
+    </div>
   );
 }
