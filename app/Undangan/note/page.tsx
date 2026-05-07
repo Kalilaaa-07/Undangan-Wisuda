@@ -3,128 +3,268 @@
 import {
   CameraOff,
   CigaretteOff,
+  MapPinned,
 } from "lucide-react";
-
 import BottomNav from "@/components/BottonNav";
+
 
 export default function NotePage() {
   return (
     <>
-      <main className="relative min-h-screen flex flex-col items-center text-center pb-28 bg-[#0c3c78] overflow-x-hidden">
+      <main className="relative min-h-screen overflow-hidden bg-[#071f3d] pb-28 text-white">
 
-        {/* ===== HEADER ===== */}
-        <div className="relative w-full bg-[#0a2f60] pt-10 pb-14 px-4 flex flex-col items-center shadow-lg">
+        {/* ===== BACKGROUND ===== */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, #1450a8 0%, #0c3c78 40%, #071f3d 100%)",
+          }}
+        />
 
-          <div className="absolute top-4 left-4 w-2 h-2 rounded-full bg-yellow-300/60" />
-
-          <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-yellow-300/60" />
-
-          <p className="tracking-[0.4em] text-yellow-300/70 text-[10px] sm:text-xs mb-3">
-            LUMINEX · ANGKATAN 32
-          </p>
-
-          <h1 className="text-3xl sm:text-4xl font-serif text-white">
-            Note Acara
-          </h1>
-
-          <div className="w-12 h-[2px] bg-yellow-300 mt-4" />
-
-          <p className="mt-3 text-sm sm:text-base text-white/70">
-            Informasi penting untuk tamu undangan
-          </p>
-
-        </div>
+        {/* ===== GLOW ===== */}
+        <div
+          className="absolute left-1/2 top-40 z-[1] h-72 w-72 -translate-x-1/2 rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,215,0,0.18) 0%, transparent 70%)",
+          }}
+        />
 
         {/* ===== CONTENT ===== */}
-        <div className="w-full max-w-md px-4 mt-6 flex flex-col gap-6">
+        <div className="relative z-10 flex flex-col items-center px-5 pt-10">
 
-          {/* ICON */}
-          <div className="flex justify-center gap-6">
+          {/* ===== TOP LABEL ===== */}
+          <p
+            className="mb-3 text-[10px] text-yellow-300/70"
+            style={{
+              letterSpacing: "0.45em",
+              fontFamily: "serif",
+            }}
+          >
+            ✦ LUMINEX · ANGKATAN 32 ✦
+          </p>
 
-            {/* NO CAMERA */}
-            <div className="w-28 h-28 rounded-full border-[4px] border-yellow-300/30 flex items-center justify-center relative bg-gradient-to-br from-[#0a2f60] to-[#0e4a96]">
+          {/* ===== TITLE ===== */}
+          <h1
+            className="text-center text-white"
+            style={{
+              fontFamily:
+                "'Playfair Display', serif",
+              fontSize:
+                "clamp(42px, 8vw, 72px)",
+              fontWeight: 900,
+              lineHeight: 1,
+              textShadow:
+                "0 0 25px rgba(255,255,255,0.18)",
+            }}
+          >
+            Note
+            Acara
+          </h1>
+
+          {/* ===== SUBTITLE ===== */}
+          <p className="mt-5 max-w-[320px] text-center text-sm leading-relaxed text-white/70">
+            Informasi penting untuk seluruh
+            tamu undangan wisuda SMK Telkom
+            Malang
+          </p>
+
+          <Divider />
+
+          {/* ===== ICONS ===== */}
+          <div className="mt-2 flex items-center justify-center gap-5">
+
+            {/* ===== NO CAMERA ===== */}
+            <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-yellow-300/30 bg-white/5 backdrop-blur-md">
+
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-300/10 to-transparent" />
 
               <CameraOff
-                size={45}
-                className="text-yellow-300"
+                size={42}
+                className="relative z-10 text-yellow-300"
               />
 
-              <div className="absolute w-[120%] h-1 bg-yellow-300 rotate-45" />
-
+              <div className="absolute h-1 w-[130%] rotate-45 bg-yellow-300/80 rounded-full" />
             </div>
 
-            {/* NO SMOKING */}
-            <div className="w-28 h-28 rounded-full border-[4px] border-yellow-300/30 flex items-center justify-center relative bg-gradient-to-br from-[#0a2f60] to-[#0e4a96]">
+            {/* ===== NO SMOKING ===== */}
+            <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-yellow-300/30 bg-white/5 backdrop-blur-md">
+
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-300/10 to-transparent" />
 
               <CigaretteOff
-                size={45}
-                className="text-yellow-300"
+                size={42}
+                className="relative z-10 text-yellow-300"
               />
 
-              <div className="absolute w-[120%] h-1 bg-yellow-300 rotate-45" />
-
+              <div className="absolute h-1 w-[130%] rotate-45 bg-yellow-300/80 rounded-full" />
             </div>
 
           </div>
 
-          {/* NOTE CARD */}
-          <div className="w-full rounded-2xl p-5 text-left bg-gradient-to-br from-[#0a2f60] to-[#0e4a96] border border-yellow-300/20">
+          {/* ===== CARD ===== */}
+          <div
+            className="mt-8 w-full max-w-md rounded-[28px] border border-yellow-300/20 p-6 backdrop-blur-xl"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))",
+              boxShadow:
+                "0 0 40px rgba(0,0,0,0.2)",
+            }}
+          >
 
-            <p className="text-yellow-300/80 text-[10px] tracking-[0.3em] mb-3">
-              INFORMASI
+            {/* ===== CARD LABEL ===== */}
+            <p
+              className="mb-5 text-[10px] text-yellow-300/80"
+              style={{
+                letterSpacing: "0.35em",
+              }}
+            >
+              INFORMASI PENTING
             </p>
 
-            <ul className="space-y-4 text-white/80 text-sm leading-relaxed">
+            {/* ===== LIST ===== */}
+            <ul className="space-y-4 text-sm leading-relaxed text-white/80">
 
-              <li>
-                • Undangan berlaku untuk dua orang
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Undangan berlaku untuk dua
+                orang
               </li>
 
-              <li>
-                • Menggunakan pakaian formal
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Menggunakan pakaian formal
               </li>
 
-              <li>
-                • Hadir 30 menit sebelum acara
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Hadir 30 menit sebelum acara
               </li>
 
-              <li>
-                • Konfirmasi kehadiran scan barcode pada undangan
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Konfirmasi kehadiran scan
+                barcode pada undangan
               </li>
 
-              <li>
-                • Undangan harap dibawa
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Undangan harap dibawa
               </li>
 
-              <li>
-                • Gunakan Google Maps menuju Graha Cakrawala
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Gunakan Google Maps menuju
+                Graha Cakrawala
               </li>
 
-              <li>
-                • Mohon menjaga ketertiban selama acara
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Mohon menjaga ketertiban
+                selama acara
               </li>
 
             </ul>
-
           </div>
 
-          {/* BUTTON MAPS */}
-          <div className="flex justify-center">
-            <a
-              href="https://maps.app.goo.gl/6KkrjWt3PZj8j6dL8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-yellow-300 text-[#0c3c78] text-sm font-semibold px-6 py-3 rounded-full shadow-lg active:scale-95 transition"
-            >
-              📍 Buka Google Maps
-            </a>
-          </div>
+          {/* ===== BUTTON ===== */}
+          <a
+            href="https://maps.app.goo.gl/6KkrjWt3PZj8j6dL8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-3 rounded-full border border-yellow-300/30 bg-yellow-300 px-7 py-3 text-sm font-bold text-[#071f3d] shadow-2xl transition active:scale-95"
+          >
+            <MapPinned size={18} />
 
+            Buka Google Maps
+          </a>
+
+          {/* ===== SPARKLES ===== */}
+          <div className="mt-10 flex gap-4">
+            {["✦", "✧", "⋆", "✧", "✦"].map(
+              (s, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: 18,
+                    textShadow:
+                      "0 0 10px rgba(255,215,0,0.8)",
+                    animation: `float 2.5s ease-in-out ${
+                      i * 0.2
+                    }s infinite`,
+                    color:
+                      i % 2 === 1
+                        ? "#ffffff"
+                        : "#ffd700",
+                  }}
+                >
+                  {s}
+                </span>
+              )
+            )}
+          </div>
         </div>
 
+        {/* ===== STYLE ===== */}
+        <style jsx>{`
+          @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+
+          @keyframes float {
+            0%,
+            100% {
+              transform: translateY(0px);
+            }
+
+            50% {
+              transform: translateY(-8px);
+            }
+          }
+        `}</style>
       </main>
 
       <BottomNav />
     </>
+  );
+}
+
+function Divider() {
+  return (
+    <div className="my-7 flex w-full max-w-[240px] items-center gap-3">
+      <div
+        className="h-px flex-1"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, rgba(255,215,0,0.7))",
+        }}
+      />
+
+      <span className="text-xs text-yellow-400">
+        ◆
+      </span>
+
+      <div
+        className="h-px flex-1"
+        style={{
+          background:
+            "linear-gradient(to left, transparent, rgba(255,215,0,0.7))",
+        }}
+      />
+    </div>
   );
 }

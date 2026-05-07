@@ -4,103 +4,110 @@ import Image from "next/image";
 
 import {
   Check,
+  Sparkles,
 } from "lucide-react";
 
-import BottomNav from "@/components/BottonNav";
+import BottomNav from "@/components/BottonNav"
 
 export default function ThanksPage() {
   return (
     <>
-      <main className="relative min-h-screen overflow-hidden bg-gradient-to-b from-[#041d4a] via-[#062b67] to-[#08357c] text-white pb-32 flex flex-col items-center">
+      <main className="relative min-h-screen overflow-hidden bg-[#071f3d] pb-32 text-white">
 
-        {/* ================================================= */}
-        {/* BACKGROUND */}
-        {/* ================================================= */}
+        {/* ===== BACKGROUND ===== */}
+        <div
+          className="absolute inset-0 z-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, #1450a8 0%, #0c3c78 40%, #071f3d 100%)",
+          }}
+        />
 
-        {/* GLOW */}
-        <div className="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-yellow-300/10 blur-3xl" />
+        {/* ===== GLOW ===== */}
+        <div
+          className="absolute left-1/2 top-20 z-[1] h-80 w-80 -translate-x-1/2 rounded-full blur-3xl"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,215,0,0.18) 0%, transparent 70%)",
+          }}
+        />
 
-        <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-blue-400/10 blur-3xl" />
+        {/* ===== SPARKLES ===== */}
+        <div className="absolute left-10 top-24 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
-        {/* TOP WAVE */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden pointer-events-none">
+        <div className="absolute right-10 top-40 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
-          {/* LEFT */}
-          <div className="absolute top-0 left-0">
+        <div className="absolute bottom-40 left-16 h-1 w-1 rounded-full bg-yellow-300 shadow-[0_0_15px_gold]" />
 
-            <div className="w-[320px] h-[140px] border-t-2 border-yellow-300/30 rounded-br-[300px]" />
+        {/* ===== CONTENT ===== */}
+        <div className="relative z-10 mx-auto flex max-w-lg flex-col items-center px-4 pt-14 text-center">
 
-            <div className="absolute top-6 left-6 w-[280px] h-[120px] border-t border-yellow-300/20 rounded-br-[300px]" />
+          {/* ===== HEADER ===== */}
+          <div>
 
-          </div>
-
-          {/* RIGHT */}
-          <div className="absolute top-0 right-0">
-
-            <div className="w-[320px] h-[140px] border-t-2 border-yellow-300/30 rounded-bl-[300px]" />
-
-            <div className="absolute top-6 right-6 w-[280px] h-[120px] border-t border-yellow-300/20 rounded-bl-[300px]" />
-
-          </div>
-
-        </div>
-
-        {/* SPARKLES */}
-        <div className="absolute top-20 left-8 w-2 h-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
-
-        <div className="absolute top-32 right-10 w-2 h-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
-
-        <div className="absolute bottom-52 right-16 w-2 h-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
-
-        {/* ================================================= */}
-        {/* CONTENT */}
-        {/* ================================================= */}
-
-        <div className="relative z-10 w-full max-w-lg mx-auto px-4 flex flex-col items-center text-center pt-20">
-
-          {/* HEADER */}
-          <div className="relative">
-
-            {/* HEADER GLOW */}
-            <div className="absolute left-1/2 top-0 -translate-x-1/2 w-72 h-72 rounded-full bg-yellow-300/10 blur-3xl" />
-
-            <p className="tracking-[0.4em] text-yellow-300/70 text-[10px]">
-              LUMINEX · ANGKATAN 32
+            <p
+              className="text-[10px] text-yellow-300/70"
+              style={{
+                letterSpacing: "0.45em",
+                fontFamily: "serif",
+              }}
+            >
+              ✦ LUMINEX · ANGKATAN 32 ✦
             </p>
 
-            <h1 className="mt-5 text-4xl font-serif text-white">
-              Thank You
+            <h1
+              className="mt-5 text-white"
+              style={{
+                fontFamily:
+                  "'Playfair Display', serif",
+                fontSize:
+                  "clamp(52px, 10vw, 88px)",
+                fontWeight: 900,
+                lineHeight: 0.95,
+                textShadow:
+                  "0 0 30px rgba(255,255,255,0.18)",
+              }}
+            >
+              Thank
+              <br />
+              You
             </h1>
 
-            {/* ORNAMENT */}
-            <div className="flex items-center justify-center gap-3 mt-5">
-
-              <div className="w-12 h-[1px] bg-yellow-300/40" />
-
-              <div className="w-3 h-3 rotate-45 bg-yellow-300 shadow-[0_0_15px_gold]" />
-
-              <div className="w-12 h-[1px] bg-yellow-300/40" />
-
-            </div>
-
-            <p className="mt-5 text-white/70 text-lg leading-relaxed">
+            <p className="mt-5 text-sm leading-relaxed text-white/70">
               Hormat Kami
               <br />
               Yang Mengundang
             </p>
 
+            <Divider />
           </div>
 
-          
-
-          <div className="relative mt-10 overflow-hidden rounded-[32px] border border-yellow-300/20 bg-white/5 backdrop-blur-xl px-6 py-10 shadow-[0_0_40px_rgba(255,215,0,0.06)] w-full max-w-sm">
+          {/* ===== CARD ===== */}
+          <div
+            className="relative mt-8 w-full max-w-sm overflow-hidden rounded-[32px] border border-yellow-300/20 p-8 backdrop-blur-xl"
+            style={{
+              background:
+                "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))",
+              boxShadow:
+                "0 0 40px rgba(0,0,0,0.2)",
+            }}
+          >
 
             {/* GLOW */}
-            <div className="absolute top-0 right-0 w-32 h-32 rounded-full bg-yellow-300/5 blur-3xl" />
+            <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-yellow-300/5 blur-3xl" />
 
+            {/* CHECK ICON */}
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-yellow-300/30 bg-yellow-300/10">
+
+              <Check
+                size={30}
+                className="text-yellow-300"
+              />
+
+            </div>
 
             {/* LOGO */}
-            <div className="mt-7">
+            <div className="mt-8">
 
               <Image
                 src="/telkom.png"
@@ -113,39 +120,115 @@ export default function ThanksPage() {
             </div>
 
             {/* TITLE */}
-            <h1 className="mt-6 text-[28px] leading-tight font-serif text-white">
+            <h2
+              className="mt-7 text-white"
+              style={{
+                fontFamily:
+                  "'Playfair Display', serif",
+                fontSize:
+                  "clamp(34px, 7vw, 52px)",
+                lineHeight: 1.1,
+              }}
+            >
               SMK Telkom
               <br />
               Malang
-            </h1>
+            </h2>
 
             {/* SUBTITLE */}
-            <p className="mt-4 text-white/60 leading-7 text-base">
+            <p className="mt-5 text-sm leading-7 text-white/65">
               Wisuda Angkatan XXXII
               <br />
               LUMINEX 2026
             </p>
 
+            {/* BUTTON */}
+            <button className="mt-8 inline-flex items-center gap-3 rounded-full border border-yellow-300/30 bg-yellow-300 px-6 py-3 text-sm font-bold text-[#071f3d] shadow-2xl transition active:scale-95">
+
+              <Sparkles size={18} />
+
+              Sampai Jumpa
+
+            </button>
+
           </div>
 
-          
+          {/* ===== SPARKLES ===== */}
+          <div className="mt-12 flex justify-center gap-4">
 
-          {/* BOTTOM ORNAMENT */}
-          <div className="flex items-center justify-center gap-4 mt-12">
-
-            <div className="w-20 h-[1px] bg-yellow-300/40" />
-
-            <div className="w-3 h-3 rotate-45 bg-yellow-300 shadow-[0_0_15px_gold]" />
-
-            <div className="w-20 h-[1px] bg-yellow-300/40" />
+            {["✦", "✧", "⋆", "✧", "✦"].map(
+              (s, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: 18,
+                    textShadow:
+                      "0 0 10px rgba(255,215,0,0.8)",
+                    animation: `float 2.5s ease-in-out ${
+                      i * 0.2
+                    }s infinite`,
+                    color:
+                      i % 2 === 1
+                        ? "#ffffff"
+                        : "#ffd700",
+                  }}
+                >
+                  {s}
+                </span>
+              )
+            )}
 
           </div>
 
         </div>
 
+        {/* ===== STYLE ===== */}
+        <style jsx>{`
+          @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+
+          @keyframes float {
+            0%,
+            100% {
+              transform: translateY(0px);
+            }
+
+            50% {
+              transform: translateY(-8px);
+            }
+          }
+        `}</style>
       </main>
 
       <BottomNav />
     </>
+  );
+}
+
+/* ===== DIVIDER ===== */
+function Divider() {
+  return (
+    <div className="my-7 flex items-center justify-center gap-3">
+
+      <div
+        className="h-px w-20"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, rgba(255,215,0,0.7))",
+        }}
+      />
+
+      <span className="text-xs text-yellow-400">
+        ◆
+      </span>
+
+      <div
+        className="h-px w-20"
+        style={{
+          background:
+            "linear-gradient(to left, transparent, rgba(255,215,0,0.7))",
+        }}
+      />
+
+    </div>
   );
 }
