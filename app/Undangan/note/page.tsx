@@ -1,12 +1,7 @@
 "use client";
 
-import {
-  CameraOff,
-  CigaretteOff,
-  MapPinned,
-} from "lucide-react";
+import { MapPinned } from "lucide-react";
 import BottomNav from "@/components/BottonNav";
-
 
 export default function NotePage() {
   return (
@@ -49,10 +44,8 @@ export default function NotePage() {
           <h1
             className="text-center text-white"
             style={{
-              fontFamily:
-                "'Playfair Display', serif",
-              fontSize:
-                "clamp(42px, 8vw, 72px)",
+              fontFamily: "'Playfair Display', serif",
+              fontSize: "clamp(42px, 8vw, 72px)",
               fontWeight: 900,
               lineHeight: 1,
               textShadow:
@@ -72,40 +65,9 @@ export default function NotePage() {
 
           <Divider />
 
-          {/* ===== ICONS ===== */}
-          <div className="mt-2 flex items-center justify-center gap-5">
-
-            {/* ===== NO CAMERA ===== */}
-            <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-yellow-300/30 bg-white/5 backdrop-blur-md">
-
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-300/10 to-transparent" />
-
-              <CameraOff
-                size={42}
-                className="relative z-10 text-yellow-300"
-              />
-
-              <div className="absolute h-1 w-[130%] rotate-45 bg-yellow-300/80 rounded-full" />
-            </div>
-
-            {/* ===== NO SMOKING ===== */}
-            <div className="relative flex h-28 w-28 items-center justify-center rounded-full border border-yellow-300/30 bg-white/5 backdrop-blur-md">
-
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-yellow-300/10 to-transparent" />
-
-              <CigaretteOff
-                size={42}
-                className="relative z-10 text-yellow-300"
-              />
-
-              <div className="absolute h-1 w-[130%] rotate-45 bg-yellow-300/80 rounded-full" />
-            </div>
-
-          </div>
-
           {/* ===== CARD ===== */}
           <div
-            className="mt-8 w-full max-w-md rounded-[28px] border border-yellow-300/20 p-6 backdrop-blur-xl"
+            className="mt-4 w-full max-w-md rounded-[28px] border border-yellow-300/20 p-6 backdrop-blur-xl"
             style={{
               background:
                 "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))",
@@ -180,6 +142,38 @@ export default function NotePage() {
                 selama acara
               </li>
 
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Dilarang membawa makanan
+                dan minuman dari luar
+              </li>
+
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Dilarang menggunakan flash
+                saat dokumentasi
+              </li>
+
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Jaga barang bawaan pribadi
+              </li>
+
+              <li className="flex gap-3">
+                <span className="text-yellow-300">
+                  ✦
+                </span>
+                Matikan atau silent mode
+                pada perangkat saat acara
+                berlangsung
+              </li>
+
             </ul>
           </div>
 
@@ -194,6 +188,39 @@ export default function NotePage() {
 
             Buka Google Maps
           </a>
+
+          {/* ===== THANK YOU ===== */}
+          <div className="mt-14 text-center">
+
+            <p
+              className="text-yellow-300 italic"
+              style={{
+                fontFamily:
+                  "'Playfair Display', serif",
+                fontSize:
+                  "clamp(30px, 5vw, 46px)",
+                textShadow:
+                  "0 0 20px rgba(255,215,0,0.45)",
+              }}
+            >
+              ✦ Terima kasih ✦
+            </p>
+
+            <div
+              className="mx-auto mt-3 h-px w-44"
+              style={{
+                background:
+                  "linear-gradient(to right, transparent, rgba(255,215,0,0.8), transparent)",
+              }}
+            />
+
+            <p className="mt-4 text-sm leading-relaxed text-white/70">
+              atas kehadiran dan
+              <br />
+              kerja samanya
+            </p>
+
+          </div>
 
           {/* ===== SPARKLES ===== */}
           <div className="mt-10 flex gap-4">
@@ -219,6 +246,7 @@ export default function NotePage() {
               )
             )}
           </div>
+
         </div>
 
         {/* ===== STYLE ===== */}

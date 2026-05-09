@@ -1,55 +1,39 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export default function GlobalMusic() {
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const [started, setStarted] = useState(false);
-
   useEffect(() => {
-    const startMusic = async () => {
-      if (started) return;
+    const audio = audioRef.current;
 
+    if (!audio) return;
+
+    audio.volume = 0.3;
+
+    const startMusic = async () => {
       try {
-        await audioRef.current?.play();
-        setStarted(true);
+        await audio.play();
       } catch (err) {
-        console.log("Autoplay blocked");
+        console.log("Autoplay gagal");
       }
     };
 
-    window.addEventListener("click", startMusic);
+    // coba autoplay
+    startMusic();
+
+    // fallback pas user klik dimana aja
+    document.addEventListener("click", startMusic);
 
     return () => {
-      window.removeEventListener("click", startMusic);
+      document.removeEventListener("click", startMusic);
     };
-  }, [started]);
+  }, []);
 
   return (
-    <>
-      <audio
-        ref={audioRef}
-        src="/music/bgmusic.mp3"
-        loop
-      />
-
-      {/* BUTTON MUSIC */}
-      <button
-        onClick={() => {
-          if (audioRef.current?.paused) {
-            audioRef.current.play();
-          } else {
-            audioRef.current?.pause();
-          }
-        }}
-        className="fixed top-5 right-5 z-[9999]
-        bg-white/10 backdrop-blur-md
-        border border-white/20
-        text-white px-4 py-2 rounded-full"
-      >
-        🎵
-      </button>
-    </>
+    <audio ref={audioRef} loop autoPlay hidden>
+      <source src="/music1.mp3" type="audio/mpeg" />
+    </audio>
   );
 }
