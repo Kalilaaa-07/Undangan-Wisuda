@@ -15,6 +15,7 @@ export default function ThanksPage() {
             "radial-gradient(ellipse at 50% 0%, #0d3470 0%, #071840 45%, #050f20 100%)",
         }}
       />
+      
 
       {/* ===== TOP GOLD LINE ===== */}
       <div
@@ -40,6 +41,7 @@ export default function ThanksPage() {
       <div className="absolute right-10 top-40 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
       <div className="absolute bottom-32 left-10 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
+
 
       {/* ===== CONTENT ===== */}
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-5 py-12 text-center">
@@ -166,14 +168,7 @@ export default function ThanksPage() {
                 {/* OVERLAY */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050f20]/95 via-[#050f20]/25 to-transparent" />
 
-                {/* BADGE */}
-                <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/20 px-4 py-2 backdrop-blur-md">
 
-                  <p className="text-[10px] tracking-[0.35em] text-white/90">
-                    SMK TELKOM MALANG
-                  </p>
-
-                </div>
 
                 {/* BOTTOM TAG */}
                 <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-white/10 px-5 py-2 backdrop-blur-md">
@@ -260,30 +255,31 @@ export default function ThanksPage() {
 
                 </div>
 
-                {/* BUTTONS */}
-                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                {/* TEXT */}
+                <div className="mt-10 text-center">
 
-                  <button
-                    className="inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-sm font-bold text-[#050f20] transition duration-300 hover:scale-[1.02] active:scale-95"
+                  <p
+                    className="text-yellow-300"
                     style={{
                       fontFamily: "'Cinzel', serif",
-                      letterSpacing: "0.08em",
-                      background:
-                        "linear-gradient(135deg, #ffd700 0%, #f0c000 100%)",
-                      boxShadow:
-                        "0 0 0 1px rgba(255,215,0,0.3), 0 8px 20px rgba(255,215,0,0.2)",
+                      fontSize: "clamp(18px,4vw,24px)",
+                      letterSpacing: "0.15em",
+                      textShadow:
+                        "0 0 18px rgba(255,215,0,0.25)",
                     }}
                   >
-
-                    <Sparkles size={18} />
-
                     Sampai Jumpa
+                  </p>
 
-                  </button>
-
-                  <button className="rounded-full border border-white/10 bg-white/5 px-7 py-4 text-sm font-semibold text-white/70 backdrop-blur-md transition hover:bg-white/10">
-                    Angkatan 32
-                  </button>
+                  <p
+                    className="mt-3 text-sm text-white/45"
+                    style={{
+                      letterSpacing: "0.3em",
+                      fontFamily: "'Cinzel', serif",
+                    }}
+                  >
+                    ANGKATAN 32
+                  </p>
 
                 </div>
 
@@ -306,9 +302,8 @@ export default function ThanksPage() {
                   fontSize: 16,
                   textShadow:
                     "0 0 10px rgba(255,215,0,0.8)",
-                  animation: `float 2.5s ease-in-out ${
-                    i * 0.2
-                  }s infinite`,
+                  animation: `float 2.5s ease-in-out ${i * 0.2
+                    }s infinite`,
                   color:
                     i % 2 === 1
                       ? "#ffffff"
@@ -349,30 +344,30 @@ export default function ThanksPage() {
   );
 
   function Divider() {
-  return (
-    <div className="my-8 flex items-center gap-3">
+    return (
+      <div className="my-8 flex items-center gap-3">
 
-      <div
-        className="h-px w-16"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, rgba(255,215,0,0.7))",
-        }}
-      />
+        <div
+          className="h-px w-16"
+          style={{
+            background:
+              "linear-gradient(to right, transparent, rgba(255,215,0,0.7))",
+          }}
+        />
 
-      <span className="text-yellow-300">
-        ◆
-      </span>
+        <span className="text-yellow-300">
+          ◆
+        </span>
 
-      <div
-        className="h-px w-16"
-        style={{
-          background:
-            "linear-gradient(to left, transparent, rgba(255,215,0,0.7))",
-        }}
-      />
+        <div
+          className="h-px w-16"
+          style={{
+            background:
+              "linear-gradient(to left, transparent, rgba(255,215,0,0.7))",
+          }}
+        />
 
-    </div>
-  );
-}
+      </div>
+    );
+  }
 }

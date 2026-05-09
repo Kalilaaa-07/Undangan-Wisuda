@@ -264,44 +264,7 @@ export default function RundownPage() {
 
           </div>
 
-          {/* ===== INFO CARD ===== */}
-          <div
-            className="mt-10 overflow-hidden rounded-[22px] px-6 py-5"
-            style={{
-              background:
-                "linear-gradient(160deg, rgba(255,215,0,0.06) 0%, rgba(255,215,0,0.02) 100%)",
-              border: "1px solid rgba(255,215,0,0.15)",
-              boxShadow: "inset 0 1px 0 rgba(255,215,0,0.08)",
-            }}
-          >
-            <p
-              className="text-center text-[10px] tracking-[0.4em] text-yellow-400/60 uppercase mb-3"
-            >
-              Informasi Acara
-            </p>
-            <div className="flex justify-around">
-              {[
-                { label: "Tanggal", val: "2026" },
-                { label: "Venue", val: "Aula Utama" },
-                { label: "Dress Code", val: "Formal" },
-              ].map((info, i) => (
-                <div key={i} className="text-center">
-                  <p
-                    className="text-white/30 text-[10px] uppercase"
-                    style={{ letterSpacing: "0.2em" }}
-                  >
-                    {info.label}
-                  </p>
-                  <p
-                    className="mt-1 text-sm text-yellow-300/80"
-                    style={{ fontFamily: "'Cinzel', serif", letterSpacing: "0.06em", fontSize: 12 }}
-                  >
-                    {info.val}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
+          
 
           {/* ===== FOOTER SPARKLES ===== */}
           <div className="mt-12 flex justify-center gap-3">

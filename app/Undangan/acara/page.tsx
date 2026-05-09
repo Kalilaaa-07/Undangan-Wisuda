@@ -100,19 +100,76 @@ export default function AcaraPage() {
               />
             </div>
 
-            <p
-              className="mt-5 text-sm text-white/45"
+
+
+            {/* ===== DATE HIGHLIGHT CARD ===== */}
+            <div
+              className="animate-fadein mt-8 overflow-hidden rounded-[26px] px-6 py-5"
               style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
-                fontSize: "clamp(13px,2vw,15px)",
-                letterSpacing: "0.05em",
+                animationDelay: "0.24s",
+                background: "linear-gradient(160deg, rgba(255,215,0,0.08) 0%, rgba(255,215,0,0.02) 100%)",
+                border: "1px solid rgba(255,215,0,0.18)",
+                boxShadow: "inset 0 1px 0 rgba(255,215,0,0.1)",
               }}
             >
-              Kamis, 11 Juni 2026 · Pukul 08.00 WIB
-            </p>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <p
+                    className="text-[10px] text-yellow-400/55"
+                    style={{ letterSpacing: "0.4em", fontFamily: "'Cinzel', serif" }}
+                  >
+                    TANGGAL
+                  </p>
+                  <p
+                    className="mt-1 text-white"
+                    style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(14px,3vw,18px)", letterSpacing: "0.06em" }}
+                  >
+                    Kamis, 11 Juni 2026
+                  </p>
+                </div>
+                <div
+                  className="h-10 w-px"
+                  style={{ background: "linear-gradient(to bottom, transparent, rgba(255,215,0,0.3), transparent)" }}
+                />
+                <div>
+                  <p
+                    className="text-[10px] text-yellow-400/55"
+                    style={{ letterSpacing: "0.4em", fontFamily: "'Cinzel', serif" }}
+                  >
+                    WAKTU
+                  </p>
+                  <p
+                    className="mt-1 text-white"
+                    style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(14px,3vw,18px)", letterSpacing: "0.06em" }}
+                  >
+                    08.00 WIB
+                  </p>
+                </div>
+                <div
+                  className="h-10 w-px"
+                  style={{ background: "linear-gradient(to bottom, transparent, rgba(255,215,0,0.3), transparent)" }}
+                />
+                <div>
+                  <p
+                    className="text-[10px] text-yellow-400/55"
+                    style={{ letterSpacing: "0.4em", fontFamily: "'Cinzel', serif" }}
+                  >
+                    ACARA
+                  </p>
+                  <p
+                    className="mt-1 text-yellow-300"
+                    style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(12px,2.5vw,15px)", letterSpacing: "0.04em" }}
+                  >
+                    Wisuda
+                  </p>
+                </div>
+              </div>
+            </div>
 
             <GoldDivider />
           </div>
+
+
 
           {/* ===== COUNTDOWN ===== */}
           <div className="animate-fadein">
@@ -360,70 +417,6 @@ export default function AcaraPage() {
                       inspirasi warna
                     </span>
                   </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ===== DATE HIGHLIGHT CARD ===== */}
-            <div
-              className="animate-fadein overflow-hidden rounded-[26px] px-6 py-5"
-              style={{
-                animationDelay: "0.24s",
-                background: "linear-gradient(160deg, rgba(255,215,0,0.08) 0%, rgba(255,215,0,0.02) 100%)",
-                border: "1px solid rgba(255,215,0,0.18)",
-                boxShadow: "inset 0 1px 0 rgba(255,215,0,0.1)",
-              }}
-            >
-              <div className="flex items-center justify-between gap-4">
-                <div>
-                  <p
-                    className="text-[10px] text-yellow-400/55"
-                    style={{ letterSpacing: "0.4em", fontFamily: "'Cinzel', serif" }}
-                  >
-                    TANGGAL
-                  </p>
-                  <p
-                    className="mt-1 text-white"
-                    style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(14px,3vw,18px)", letterSpacing: "0.06em" }}
-                  >
-                    Kamis, 11 Juni 2026
-                  </p>
-                </div>
-                <div
-                  className="h-10 w-px"
-                  style={{ background: "linear-gradient(to bottom, transparent, rgba(255,215,0,0.3), transparent)" }}
-                />
-                <div>
-                  <p
-                    className="text-[10px] text-yellow-400/55"
-                    style={{ letterSpacing: "0.4em", fontFamily: "'Cinzel', serif" }}
-                  >
-                    WAKTU
-                  </p>
-                  <p
-                    className="mt-1 text-white"
-                    style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(14px,3vw,18px)", letterSpacing: "0.06em" }}
-                  >
-                    08.00 WIB
-                  </p>
-                </div>
-                <div
-                  className="h-10 w-px"
-                  style={{ background: "linear-gradient(to bottom, transparent, rgba(255,215,0,0.3), transparent)" }}
-                />
-                <div>
-                  <p
-                    className="text-[10px] text-yellow-400/55"
-                    style={{ letterSpacing: "0.4em", fontFamily: "'Cinzel', serif" }}
-                  >
-                    ACARA
-                  </p>
-                  <p
-                    className="mt-1 text-yellow-300"
-                    style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(12px,2.5vw,15px)", letterSpacing: "0.04em" }}
-                  >
-                    Wisuda
-                  </p>
                 </div>
               </div>
             </div>

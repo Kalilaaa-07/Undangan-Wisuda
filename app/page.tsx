@@ -28,26 +28,26 @@ export default function Home() {
         {/* ===== TOP LOGO ===== */}
         <div className="mb-8 flex flex-col items-center">
 
-          {/* FRAME LOGO */}
-          <div className="rounded-[18px] bg-white/95 p-[1.5px] shadow-[0_0_12px_rgba(255,255,255,0.05)]">
+{/* FRAME LOGO */}
+<div className="absolute left-1/2 top-[-10px] z-30 -translate-x-1/2 ">
 
-            <Image
-              src="/logo.png"
-              alt="Logo"
-              width={260}
-              height={70}
-              priority
-              className="
-                h-auto
-                w-[135px]
-                rounded-[16px]
-                object-contain
-                sm:w-[155px]
-                md:w-[180px]
-              "
-            />
+  <Image
+    src="/logo1.png"
+    alt="Logo"
+    width={380}
+    height={140}
+    priority
+    className="
+      h-auto
+      w-[170px]
+      rounded-[16px]
+      object-contain
+      sm:w-[210px]
+      md:w-[250px]
+    "
+  />
 
-          </div>
+</div>
 
           {/* LABEL */}
           <div className="mt-3 rounded-[14px] border border-yellow-300/20 bg-yellow-300/10 px-4 py-[7px] backdrop-blur-md">
@@ -188,9 +188,8 @@ export default function Home() {
                     fontSize: 16,
                     textShadow:
                       "0 0 12px rgba(255,215,0,0.8)",
-                    animation: `float 2.5s ease-in-out ${
-                      i * 0.2
-                    }s infinite`,
+                    animation: `float 2.5s ease-in-out ${i * 0.2
+                      }s infinite`,
                     color:
                       i % 2 === 1
                         ? "#ffffff"
