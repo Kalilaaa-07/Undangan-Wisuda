@@ -1,249 +1,345 @@
 "use client";
 
-import {
-  Clock3,
-  Sparkles,
-} from "lucide-react";
-
-import BottomNav from "@/components/BottonNav"
+import { Clock3 } from "lucide-react";
+import BottomNav from "@/components/BottonNav";
 
 /* ===== DATA ===== */
 const rundownData = [
   {
-    waktu: "07.30 - 08.00",
+    waktu: "07.30 – 08.00",
     acara: "Registrasi Tamu",
     desc: "Tamu undangan melakukan registrasi dan memasuki venue",
+    icon: "✦",
   },
   {
-    waktu: "08.00 - 08.15",
+    waktu: "08.00 – 08.15",
     acara: "Pembukaan",
-    desc: "Pembukaan oleh MC dan doa",
+    desc: "Pembukaan oleh MC dan doa bersama",
+    icon: "✧",
   },
   {
-    waktu: "08.15 - 09.30",
+    waktu: "08.15 – 09.30",
     acara: "Prosesi Wisuda",
     desc: "Pemanggilan dan penyerahan penghargaan kepada wisudawan",
+    icon: "⋆",
   },
   {
-    waktu: "09.30 - 10.00",
+    waktu: "09.30 – 10.00",
     acara: "Sambutan",
     desc: "Sambutan dari Kepala Sekolah dan perwakilan siswa",
+    icon: "✦",
   },
   {
-    waktu: "10.00 - 11.00",
+    waktu: "10.00 – 11.00",
     acara: "Penutup & Foto Bersama",
-    desc: "Sesi foto dan penutup acara",
+    desc: "Sesi foto bersama dan penutup acara",
+    icon: "✧",
   },
 ];
 
 export default function RundownPage() {
   return (
     <>
-      <main className="relative min-h-screen overflow-hidden bg-[#071f3d] pb-32 text-white">
+      <main className="relative min-h-screen overflow-hidden bg-[#050f20] pb-36 text-white">
 
         {/* ===== BACKGROUND ===== */}
         <div
           className="absolute inset-0 z-0"
           style={{
             background:
-              "radial-gradient(ellipse at center, #1450a8 0%, #0c3c78 40%, #071f3d 100%)",
+              "radial-gradient(ellipse at 50% 0%, #0d3470 0%, #071840 45%, #050f20 100%)",
           }}
         />
 
-        {/* ===== GLOW ===== */}
+        {/* ===== TOP GOLD LINE ===== */}
         <div
-          className="absolute left-1/2 top-24 z-[1] h-80 w-80 -translate-x-1/2 rounded-full blur-3xl"
+          className="absolute top-0 left-0 right-0 z-[3] h-px"
           style={{
             background:
-              "radial-gradient(circle, rgba(255,215,0,0.18) 0%, transparent 70%)",
+              "linear-gradient(to right, transparent, rgba(255,215,0,0.7), transparent)",
           }}
         />
 
-        {/* ===== SPARKLES ===== */}
-        <div className="absolute left-10 top-28 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
-
-        <div className="absolute right-10 top-40 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
+        {/* ===== AMBIENT GLOW ===== */}
+        <div
+          className="absolute left-1/2 top-0 z-[1] h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/4 rounded-full blur-3xl pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(circle, rgba(255,215,0,0.07) 0%, rgba(20,80,200,0.08) 50%, transparent 75%)",
+          }}
+        />
 
         {/* ===== CONTENT ===== */}
-        <div className="relative z-10 mx-auto max-w-md px-4 pt-10">
+        <div className="relative z-10 mx-auto max-w-md px-4 pt-12">
 
           {/* ===== HEADER ===== */}
           <div className="text-center">
 
+            {/* badge */}
+            <div
+              className="inline-flex items-center gap-2 rounded-full border border-yellow-400/20 bg-yellow-400/5 px-4 py-1.5 backdrop-blur-xl"
+              style={{ letterSpacing: "0.32em" }}
+            >
+              <span className="text-yellow-400 text-[9px]">✦</span>
+              <span className="text-[9px] text-yellow-300/80">LUMINEX · ANGKATAN 32</span>
+              <span className="text-yellow-400 text-[9px]">✦</span>
+            </div>
+
+            {/* title */}
+            <div className="relative mt-6 inline-block">
+              <h1
+                style={{
+                  fontFamily: "'Cinzel', serif",
+                  fontSize: "clamp(40px, 10vw, 72px)",
+                  fontWeight: 900,
+                  lineHeight: 1.05,
+                  letterSpacing: "0.1em",
+                  color: "transparent",
+                  backgroundImage:
+                    "linear-gradient(160deg, #ffffff 10%, #e8d68a 45%, #ffd700 60%, #fff8e0 90%)",
+                  WebkitBackgroundClip: "text",
+                  backgroundClip: "text",
+                  filter: "drop-shadow(0 0 40px rgba(255,215,0,0.2))",
+                }}
+              >
+                Rundown<br />Acara
+              </h1>
+              <div
+                className="absolute -bottom-1 left-0 right-0 h-px"
+                style={{
+                  background:
+                    "linear-gradient(to right, transparent, rgba(255,215,0,0.6), transparent)",
+                }}
+              />
+            </div>
+
             <p
-              className="text-[10px] text-yellow-300/70"
+              className="mt-5 text-sm text-white/45"
               style={{
-                letterSpacing: "0.45em",
-                fontFamily: "serif",
+                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontSize: "clamp(13px,2vw,15px)",
+                letterSpacing: "0.05em",
               }}
             >
-              ✦ LUMINEX · ANGKATAN 32 ✦
+              Susunan kegiatan Wisuda LUMINEX
             </p>
 
-            <h1
-              className="mt-4 text-white"
-              style={{
-                fontFamily:
-                  "'Playfair Display', serif",
-                fontSize:
-                  "clamp(52px, 10vw, 88px)",
-                fontWeight: 900,
-                lineHeight: 0.95,
-                textShadow:
-                  "0 0 30px rgba(255,255,255,0.18)",
-              }}
-            >
-              Rundown
-              <br />
-              Acara
-            </h1>
-
-            <p className="mt-5 text-sm leading-relaxed text-white/70">
-              Susunan kegiatan acara
-              <br />
-              Wisuda LUMINEX
-            </p>
-
-            <Divider />
+            <GoldDivider />
           </div>
 
           {/* ===== TIMELINE ===== */}
-          <div className="relative mt-10">
+          <div className="relative mt-2">
 
-            {/* LINE */}
+            {/* vertical gold line */}
             <div
-              className="absolute left-[19px] top-0 bottom-0 w-px"
+              className="absolute left-5 top-5 bottom-5 w-px"
               style={{
                 background:
-                  "linear-gradient(to bottom, rgba(255,215,0,0.7), rgba(255,215,0,0.1))",
+                  "linear-gradient(to bottom, rgba(255,215,0,0.6) 0%, rgba(255,215,0,0.15) 70%, transparent 100%)",
               }}
             />
 
-            <div className="space-y-6">
+            <div className="space-y-5">
+              {rundownData.map((item, i) => {
+                const isLast = i === rundownData.length - 1;
+                return (
+                  <div key={i} className="relative flex gap-4 animate-fadein" style={{ animationDelay: `${i * 0.08}s` }}>
 
-              {rundownData.map((item, i) => (
-                <div
-                  key={i}
-                  className="relative flex gap-4"
-                >
-
-                  {/* ===== DOT ===== */}
-                  <div className="relative z-10 flex h-10 w-10 min-w-[40px] items-center justify-center rounded-full border border-yellow-300/30 bg-yellow-300 text-sm font-bold text-[#071f3d] shadow-[0_0_20px_rgba(255,215,0,0.3)]">
-
-                    {i + 1}
-
-                  </div>
-
-                  {/* ===== CARD ===== */}
-                  <div
-                    className="flex-1 overflow-hidden rounded-[28px] border border-yellow-300/20 p-5 backdrop-blur-xl"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))",
-                      boxShadow:
-                        "0 0 40px rgba(0,0,0,0.2)",
-                    }}
-                  >
-
-                    {/* ===== TOP ===== */}
-                    <div className="flex items-center gap-3">
-
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full border border-yellow-300/20 bg-yellow-300/10">
-
-                        <Clock3
-                          size={18}
-                          className="text-yellow-300"
-                        />
-
+                    {/* ===== NODE ===== */}
+                    <div className="relative z-10 flex flex-col items-center">
+                      <div
+                        className="flex h-10 w-10 min-w-[40px] items-center justify-center rounded-full text-sm font-black"
+                        style={{
+                          fontFamily: "'Cinzel', serif",
+                          background:
+                            "linear-gradient(135deg, #ffd700 0%, #f0c000 100%)",
+                          boxShadow:
+                            "0 0 0 3px rgba(255,215,0,0.12), 0 0 20px rgba(255,215,0,0.25)",
+                          color: "#050f20",
+                        }}
+                      >
+                        {i + 1}
                       </div>
+                    </div>
 
-                      <div>
+                    {/* ===== CARD ===== */}
+                    <div
+                      className="relative flex-1 overflow-hidden rounded-[22px] p-5 transition-all"
+                      style={{
+                        background:
+                          "linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.025) 60%, rgba(13,52,112,0.12) 100%)",
+                        border: "1px solid rgba(255,255,255,0.08)",
+                        boxShadow:
+                          "inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 40px rgba(0,0,0,0.3)",
+                        backdropFilter: "blur(16px)",
+                      }}
+                    >
+                      {/* shimmer top */}
+                      <div
+                        className="absolute top-0 left-4 right-4 h-px"
+                        style={{
+                          background:
+                            "linear-gradient(to right, transparent, rgba(255,215,0,0.3), transparent)",
+                        }}
+                      />
 
-                        <p
-                          className="text-[10px] text-yellow-300/80"
+                      {/* time row */}
+                      <div className="mb-3 flex items-center gap-2">
+                        <div
+                          className="flex h-7 w-7 items-center justify-center rounded-full border border-yellow-400/20"
+                          style={{ background: "rgba(255,215,0,0.07)" }}
+                        >
+                          <Clock3 size={13} className="text-yellow-300/80" />
+                        </div>
+                        <span
+                          className="text-yellow-300/75"
                           style={{
-                            letterSpacing:
-                              "0.28em",
+                            fontFamily: "'Cinzel', serif",
+                            fontSize: 11,
+                            letterSpacing: "0.22em",
                           }}
                         >
                           {item.waktu}
-                        </p>
-
-                        <h2
-                          className="mt-1 text-white"
-                          style={{
-                            fontFamily:
-                              "'Playfair Display', serif",
-                            fontSize:
-                              "clamp(24px, 5vw, 34px)",
-                            lineHeight: 1.1,
-                          }}
-                        >
-                          {item.acara}
-                        </h2>
-
+                        </span>
                       </div>
 
+                      {/* acara name */}
+                      <h2
+                        className="text-white"
+                        style={{
+                          fontFamily: "'Cinzel', serif",
+                          fontSize: "clamp(16px, 4vw, 20px)",
+                          fontWeight: 700,
+                          letterSpacing: "0.06em",
+                          lineHeight: 1.2,
+                        }}
+                      >
+                        {item.acara}
+                      </h2>
+
+                      {/* desc */}
+                      <p
+                        className="mt-3 leading-7 text-white/50"
+                        style={{
+                          fontFamily: "'Cormorant Garamond', Georgia, serif",
+                          fontSize: "clamp(13px,2.2vw,15px)",
+                          fontStyle: "italic",
+                        }}
+                      >
+                        {item.desc}
+                      </p>
+
+                      {/* progress indicator for non-last items */}
+                      {!isLast && (
+                        <div
+                          className="absolute bottom-0 left-0 right-0 h-px"
+                          style={{
+                            background:
+                              "linear-gradient(to right, transparent, rgba(255,215,0,0.08), transparent)",
+                          }}
+                        />
+                      )}
                     </div>
 
-                    {/* ===== DESC ===== */}
-                    <p className="mt-4 text-sm leading-7 text-white/70">
-
-                      {item.desc}
-
-                    </p>
-
                   </div>
+                );
+              })}
+            </div>
 
-                </div>
-              ))}
-
+            {/* end marker */}
+            <div className="relative mt-5 ml-[5px] flex items-center gap-3">
+              <div
+                className="flex h-5 w-5 items-center justify-center rounded-full border border-yellow-400/40"
+                style={{ background: "rgba(255,215,0,0.1)" }}
+              >
+                <div className="h-1.5 w-1.5 rounded-full bg-yellow-400/60" />
+              </div>
+              <p
+                className="text-[11px] text-white/25"
+                style={{ letterSpacing: "0.3em", fontFamily: "'Cinzel', serif" }}
+              >
+                SELESAI
+              </p>
             </div>
 
           </div>
 
-          {/* ===== BOTTOM ===== */}
-          <div className="mt-14 flex justify-center gap-4">
+          {/* ===== INFO CARD ===== */}
+          <div
+            className="mt-10 overflow-hidden rounded-[22px] px-6 py-5"
+            style={{
+              background:
+                "linear-gradient(160deg, rgba(255,215,0,0.06) 0%, rgba(255,215,0,0.02) 100%)",
+              border: "1px solid rgba(255,215,0,0.15)",
+              boxShadow: "inset 0 1px 0 rgba(255,215,0,0.08)",
+            }}
+          >
+            <p
+              className="text-center text-[10px] tracking-[0.4em] text-yellow-400/60 uppercase mb-3"
+            >
+              Informasi Acara
+            </p>
+            <div className="flex justify-around">
+              {[
+                { label: "Tanggal", val: "2026" },
+                { label: "Venue", val: "Aula Utama" },
+                { label: "Dress Code", val: "Formal" },
+              ].map((info, i) => (
+                <div key={i} className="text-center">
+                  <p
+                    className="text-white/30 text-[10px] uppercase"
+                    style={{ letterSpacing: "0.2em" }}
+                  >
+                    {info.label}
+                  </p>
+                  <p
+                    className="mt-1 text-sm text-yellow-300/80"
+                    style={{ fontFamily: "'Cinzel', serif", letterSpacing: "0.06em", fontSize: 12 }}
+                  >
+                    {info.val}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
 
-            {["✦", "✧", "⋆", "✧", "✦"].map(
-              (s, i) => (
-                <span
-                  key={i}
-                  style={{
-                    fontSize: 18,
-                    textShadow:
-                      "0 0 10px rgba(255,215,0,0.8)",
-                    animation: `float 2.5s ease-in-out ${
-                      i * 0.2
-                    }s infinite`,
-                    color:
-                      i % 2 === 1
-                        ? "#ffffff"
-                        : "#ffd700",
-                  }}
-                >
-                  {s}
-                </span>
-              )
-            )}
-
+          {/* ===== FOOTER SPARKLES ===== */}
+          <div className="mt-12 flex justify-center gap-3">
+            {["✦", "✧", "⋆", "✧", "✦"].map((s, i) => (
+              <span
+                key={i}
+                style={{
+                  fontSize: 15,
+                  color: i % 2 === 0 ? "#ffd700" : "#ffffff",
+                  textShadow: "0 0 12px rgba(255,215,0,0.8)",
+                  animation: `float 2.5s ease-in-out ${i * 0.2}s infinite`,
+                  display: "inline-block",
+                  opacity: 0.6,
+                }}
+              >
+                {s}
+              </span>
+            ))}
           </div>
 
         </div>
 
-        {/* ===== STYLE ===== */}
+        {/* ===== STYLES ===== */}
         <style jsx>{`
-          @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+          @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap");
 
           @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0px);
-            }
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+          }
 
-            50% {
-              transform: translateY(-8px);
-            }
+          @keyframes fadein {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+          }
+
+          .animate-fadein {
+            animation: fadein 0.5s ease-out both;
           }
         `}</style>
       </main>
@@ -253,31 +349,31 @@ export default function RundownPage() {
   );
 }
 
-/* ===== DIVIDER ===== */
-function Divider() {
+/* ===== GOLD DIVIDER ===== */
+function GoldDivider() {
   return (
     <div className="my-7 flex items-center justify-center gap-3">
-
       <div
         className="h-px w-20"
         style={{
-          background:
-            "linear-gradient(to right, transparent, rgba(255,215,0,0.7))",
+          background: "linear-gradient(to right, transparent, rgba(255,215,0,0.6))",
         }}
       />
-
-      <span className="text-xs text-yellow-400">
+      <span
+        style={{
+          color: "#ffd700",
+          fontSize: 10,
+          filter: "drop-shadow(0 0 4px rgba(255,215,0,0.8))",
+        }}
+      >
         ◆
       </span>
-
       <div
         className="h-px w-20"
         style={{
-          background:
-            "linear-gradient(to left, transparent, rgba(255,215,0,0.7))",
+          background: "linear-gradient(to left, transparent, rgba(255,215,0,0.6))",
         }}
       />
-
     </div>
   );
 }

@@ -6,7 +6,7 @@ import { Sparkles } from "lucide-react";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#071f3d] text-white">
+    <main className="relative overflow-hidden bg-[#071f3d] text-white">
 
       {/* ===== BACKGROUND ===== */}
       <div
@@ -18,32 +18,41 @@ export default function Home() {
       />
 
       {/* ===== GLOW ===== */}
-      <div className="absolute left-1/2 top-0 h-[450px] w-[450px] -translate-x-1/2 rounded-full bg-yellow-300/10 blur-3xl" />
-
-      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
-
-      <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-yellow-300/10 blur-3xl" />
+      <div className="absolute left-1/2 top-0 h-[320px] w-[320px] -translate-x-1/2 rounded-full bg-yellow-300/10 blur-3xl" />
+      <div className="absolute bottom-0 left-0 h-60 w-60 rounded-full bg-blue-400/10 blur-3xl" />
+      <div className="absolute right-0 top-1/3 h-60 w-60 rounded-full bg-yellow-300/10 blur-3xl" />
 
       {/* ===== CONTENT ===== */}
-      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-center px-5 py-10">
+      <div className="relative z-10 mx-auto flex min-h-screen w-full max-w-7xl flex-col justify-center px-5 py-10 sm:px-6 md:px-8 lg:px-10">
 
-        {/* ===== TOP TEXT ===== */}
-        <div className="mb-10 flex flex-col items-center">
+        {/* ===== TOP LOGO ===== */}
+        <div className="mb-8 flex flex-col items-center">
 
-          {/* TELKOM LOGO */}
-          <Image
-            src="/Telkom.png"
-            alt="Telkom"
-            width={90}
-            height={90}
-            className="h-auto w-[90px] object-contain drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
-            priority
-          />
+          {/* FRAME LOGO */}
+          <div className="rounded-[18px] bg-white/95 p-[1.5px] shadow-[0_0_12px_rgba(255,255,255,0.05)]">
 
-          {/* AESTHETIC LABEL */}
-          <div className="mt-5 rounded-full border border-yellow-300/20 bg-yellow-300/10 px-6 py-2 backdrop-blur-md">
+            <Image
+              src="/logo.png"
+              alt="Logo"
+              width={260}
+              height={70}
+              priority
+              className="
+                h-auto
+                w-[135px]
+                rounded-[16px]
+                object-contain
+                sm:w-[155px]
+                md:w-[180px]
+              "
+            />
 
-            <p className="text-[10px] tracking-[0.45em] text-yellow-300/80 md:text-xs">
+          </div>
+
+          {/* LABEL */}
+          <div className="mt-3 rounded-[14px] border border-yellow-300/20 bg-yellow-300/10 px-4 py-[7px] backdrop-blur-md">
+
+            <p className="text-center text-[8px] tracking-[0.25em] text-yellow-300/80 sm:text-[9px] md:text-[10px] md:tracking-[0.4em]">
               ✦ CELEBRATION OF MEMORIES ✦
             </p>
 
@@ -52,34 +61,14 @@ export default function Home() {
         </div>
 
         {/* ===== HERO ===== */}
-        <div className="grid w-full items-center gap-14 lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
 
           {/* ===== FOTO ===== */}
-          <div className="relative flex justify-center">
+          <div className="flex justify-center">
 
-            {/* LUMI FLOATING */}
-            <div className="absolute -right-8 -top-8 z-20 hidden lg:block">
+            <div className="relative w-full max-w-[430px] overflow-hidden rounded-[24px] border border-white/10 bg-white/5 p-2 shadow-[0_0_30px_rgba(255,255,255,0.05)] backdrop-blur-xl">
 
-              <div className="rounded-full border border-yellow-300/20 bg-[#0f2c57]/90 p-5 shadow-[0_0_40px_rgba(255,215,0,0.2)] backdrop-blur-xl">
-
-                <Image
-                  src="/lumi1.png"
-                  alt="Lumi"
-                  width={90}
-                  height={90}
-                  className="animate-float object-contain"
-                  priority
-                />
-
-              </div>
-
-            </div>
-
-            {/* FOTO CARD */}
-            <div className="relative w-full max-w-[520px] overflow-hidden rounded-[38px] border border-white/10 bg-white/5 p-3 backdrop-blur-xl">
-
-              {/* FOTO */}
-              <div className="relative overflow-hidden rounded-[30px]">
+              <div className="relative overflow-hidden rounded-[20px]">
 
                 <Image
                   src="/angkatan.png"
@@ -87,11 +76,17 @@ export default function Home() {
                   width={900}
                   height={1200}
                   priority
-                  className="h-[580px] w-full object-cover"
+                  className="
+                    h-[300px]
+                    w-full
+                    object-cover
+                    sm:h-[380px]
+                    md:h-[500px]
+                  "
                 />
 
                 {/* OVERLAY */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#071f3d]/80 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#071f3d]/85 via-transparent to-transparent" />
 
               </div>
 
@@ -106,48 +101,45 @@ export default function Home() {
             <h1
               className="text-white"
               style={{
-                fontFamily:
-                  "'Playfair Display', serif",
-                fontSize:
-                  "clamp(68px, 12vw, 120px)",
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "clamp(52px, 12vw, 92px)",
                 fontWeight: 900,
-                lineHeight: 0.9,
-                textShadow:
-                  "0 0 35px rgba(255,255,255,0.15)",
+                lineHeight: 1,
+                textShadow: "0 0 20px rgba(255,255,255,0.08)",
               }}
             >
               Wisuda
             </h1>
 
             {/* SUBTITLE */}
-            <h2 className="mt-5 text-[30px] font-semibold text-white md:text-[42px]">
+            <h2 className="mt-3 text-[16px] font-semibold tracking-[0.08em] text-white sm:text-[20px] md:text-[30px]">
               SMK TELKOM MALANG
             </h2>
 
             {/* ANGKATAN */}
-            <div className="mt-5 rounded-full border border-yellow-300/20 bg-yellow-300/10 px-5 py-2 backdrop-blur-md">
+            <div className="mt-5 rounded-[16px] border border-yellow-300/20 bg-yellow-300/10 px-5 py-2 backdrop-blur-md">
 
-              <p className="text-sm tracking-[0.3em] text-yellow-300/85">
+              <p className="text-[10px] tracking-[0.24em] text-yellow-300/90 sm:text-[11px] md:text-sm">
                 ANGKATAN XXXII
               </p>
 
             </div>
 
             {/* DIVIDER */}
-            <div className="my-8 flex items-center gap-3">
+            <div className="my-6 flex items-center gap-3">
 
-              <div className="h-px w-16 bg-gradient-to-r from-transparent to-yellow-300/70" />
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-yellow-300/70" />
 
-              <span className="text-yellow-300">
+              <span className="text-sm text-yellow-300">
                 ◆
               </span>
 
-              <div className="h-px w-16 bg-gradient-to-l from-transparent to-yellow-300/70" />
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-yellow-300/70" />
 
             </div>
 
             {/* TEXT */}
-            <p className="max-w-xl text-sm leading-8 text-white/70 md:text-base">
+            <p className="max-w-[520px] text-sm leading-8 text-white/75 sm:text-[15px] md:text-[17px] md:leading-9">
               Dengan hormat, kami mengundang
               Anda untuk menghadiri acara
               wisuda sebagai bentuk perayaan
@@ -155,20 +147,29 @@ export default function Home() {
               kami.
             </p>
 
-            {/* QUOTE CARD */}
-            <div className="mt-8 w-full max-w-xl rounded-[28px] border border-white/10 bg-white/5 p-6 backdrop-blur-xl">
-
-              <p className="text-sm italic leading-8 text-white/70">
-                “Every ending is the beginning
-                of a new journey.”
-              </p>
-
-            </div>
-
             {/* BUTTON */}
             <Link
               href="/Undangan/opening"
-              className="mt-10 inline-flex items-center justify-center gap-3 rounded-full bg-yellow-300 px-8 py-5 text-sm font-bold text-[#071f3d] shadow-[0_0_35px_rgba(255,215,0,0.25)] transition duration-300 hover:scale-[1.03] active:scale-95"
+              className="
+                mt-8
+                inline-flex
+                items-center
+                justify-center
+                gap-3
+                rounded-[18px]
+                bg-yellow-300
+                px-7
+                py-4
+                text-sm
+                font-bold
+                text-[#071f3d]
+                shadow-[0_0_30px_rgba(255,215,0,0.2)]
+                transition-all
+                duration-300
+                hover:scale-[1.03]
+                active:scale-95
+                sm:text-[15px]
+              "
             >
 
               <Sparkles size={18} />
@@ -178,40 +179,33 @@ export default function Home() {
             </Link>
 
             {/* ORNAMENT */}
-            <div className="mt-10 flex gap-5">
+            <div className="mt-8 flex gap-4">
 
-              {["✦", "✧", "⋆", "✧", "✦"].map(
-                (s, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      fontSize: 18,
-                      textShadow:
-                        "0 0 10px rgba(255,215,0,0.8)",
-                      animation: `float 2.5s ease-in-out ${
-                        i * 0.2
-                      }s infinite`,
-                      color:
-                        i % 2 === 1
-                          ? "#ffffff"
-                          : "#ffd700",
-                    }}
-                  >
-                    {s}
-                  </span>
-                )
-              )}
+              {["✦", "✧", "⋆", "✧", "✦"].map((s, i) => (
+                <span
+                  key={i}
+                  style={{
+                    fontSize: 16,
+                    textShadow:
+                      "0 0 12px rgba(255,215,0,0.8)",
+                    animation: `float 2.5s ease-in-out ${
+                      i * 0.2
+                    }s infinite`,
+                    color:
+                      i % 2 === 1
+                        ? "#ffffff"
+                        : "#ffd700",
+                  }}
+                >
+                  {s}
+                </span>
+              ))}
 
             </div>
 
           </div>
 
         </div>
-
-        {/* FOOTER */}
-        <p className="mt-24 text-xs tracking-[0.4em] text-yellow-300/60">
-          LUMINEX · ANGKATAN 32
-        </p>
 
       </div>
 
@@ -228,10 +222,6 @@ export default function Home() {
           50% {
             transform: translateY(-10px);
           }
-        }
-
-        .animate-float {
-          animation: float 3s ease-in-out infinite;
         }
       `}</style>
 

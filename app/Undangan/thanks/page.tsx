@@ -5,199 +5,287 @@ import { Check, Sparkles } from "lucide-react";
 
 export default function ThanksPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#071f3d] text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#050f20] text-white">
 
-      {/* BACKGROUND */}
+      {/* ===== BACKGROUND ===== */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(circle at top, #1450a8 0%, #0c3c78 40%, #071f3d 100%)",
+            "radial-gradient(ellipse at 50% 0%, #0d3470 0%, #071840 45%, #050f20 100%)",
         }}
       />
 
-      {/* GLOW */}
-      <div className="absolute left-1/2 top-0 h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-yellow-300/10 blur-3xl" />
+      {/* ===== TOP GOLD LINE ===== */}
+      <div
+        className="absolute left-0 right-0 top-0 z-[3] h-px"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, rgba(255,215,0,0.7), transparent)",
+        }}
+      />
 
-      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
+      {/* ===== AMBIENT GLOW ===== */}
+      <div
+        className="absolute left-1/2 top-0 z-[1] h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/4 rounded-full blur-3xl"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,215,0,0.07) 0%, rgba(20,80,200,0.08) 50%, transparent 75%)",
+        }}
+      />
 
-      <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-yellow-300/10 blur-3xl" />
-
-      {/* FLOATING LIGHTS */}
+      {/* ===== FLOATING LIGHTS ===== */}
       <div className="absolute left-8 top-24 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
       <div className="absolute right-10 top-40 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
       <div className="absolute bottom-32 left-10 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
-      {/* CONTENT */}
+      {/* ===== CONTENT ===== */}
       <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-5 py-12 text-center">
 
-        {/* TOP BADGE */}
-        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-yellow-300/20 bg-yellow-300/10 px-5 py-2 backdrop-blur-md">
+        {/* ===== TOP LABEL ===== */}
+        <div
+          className="inline-flex items-center gap-2 rounded-full border border-yellow-400/20 bg-yellow-400/5 px-4 py-1.5 backdrop-blur-xl"
+          style={{
+            letterSpacing: "0.32em",
+          }}
+        >
 
-          <Sparkles
-            size={14}
-            className="text-yellow-300"
-          />
+          <span className="text-[9px] text-yellow-400">
+            ✦
+          </span>
 
-          <p className="text-[10px] tracking-[0.35em] text-yellow-300/80 md:text-xs">
+          <span className="text-[9px] text-yellow-300/80">
             LUMINEX · ANGKATAN 32
-          </p>
+          </span>
+
+          <span className="text-[9px] text-yellow-400">
+            ✦
+          </span>
 
         </div>
 
-        {/* TITLE */}
-        <h1
-          className="text-white"
+        {/* ===== TITLE ===== */}
+        <div className="relative mt-6 inline-block">
+
+          <h1
+            style={{
+              fontFamily: "'Cinzel', serif",
+              fontSize:
+                "clamp(56px, 11vw, 100px)",
+              fontWeight: 900,
+              lineHeight: 0.95,
+              letterSpacing: "0.08em",
+              color: "transparent",
+              backgroundImage:
+                "linear-gradient(160deg, #ffffff 10%, #e8d68a 45%, #ffd700 60%, #fff8e0 90%)",
+              WebkitBackgroundClip: "text",
+              backgroundClip: "text",
+              filter:
+                "drop-shadow(0 0 40px rgba(255,215,0,0.2))",
+            }}
+          >
+            Thank
+            <br />
+            You
+          </h1>
+
+          <div
+            className="absolute -bottom-1 left-0 right-0 h-px"
+            style={{
+              background:
+                "linear-gradient(to right, transparent, rgba(255,215,0,0.6), transparent)",
+            }}
+          />
+
+        </div>
+
+        {/* ===== SUBTITLE ===== */}
+        <p
+          className="mt-5 max-w-md text-sm leading-7 text-white/45 md:text-base"
           style={{
             fontFamily:
-              "'Playfair Display', serif",
+              "'Cormorant Garamond', Georgia, serif",
             fontSize:
-              "clamp(56px, 11vw, 100px)",
-            fontWeight: 900,
-            lineHeight: 0.95,
-            textShadow:
-              "0 0 35px rgba(255,255,255,0.15)",
+              "clamp(13px,2vw,15px)",
           }}
         >
-          Thank
-          <br />
-          You
-        </h1>
-
-        {/* SUBTITLE */}
-        <p className="mt-5 max-w-md text-sm leading-7 text-white/70 md:text-base">
           Terima kasih atas kehadiran,
           doa, dan dukungannya dalam
           perjalanan kami.
         </p>
 
-        {/* DIVIDER */}
-        <div className="my-8 flex items-center gap-3">
+        <Divider />
 
-          <div className="h-px w-16 bg-gradient-to-r from-transparent to-yellow-300/70" />
-
-          <span className="text-yellow-300">
-            ◆
-          </span>
-
-          <div className="h-px w-16 bg-gradient-to-l from-transparent to-yellow-300/70" />
-
-        </div>
-
-        {/* MAIN CARD */}
+        {/* ===== MAIN CARD ===== */}
         <div
-          className="relative w-full max-w-5xl overflow-hidden rounded-[36px] border border-yellow-300/20 backdrop-blur-xl"
+          className="relative w-full max-w-5xl overflow-hidden rounded-[32px] p-[1px]"
           style={{
             background:
-              "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))",
-            boxShadow:
-              "0 0 50px rgba(0,0,0,0.25)",
+              "linear-gradient(135deg, rgba(255,215,0,0.25), rgba(255,255,255,0.08), rgba(255,215,0,0.12))",
           }}
         >
 
-          {/* CARD GLOW */}
-          <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-yellow-300/10 blur-3xl" />
+          <div
+            className="relative overflow-hidden rounded-[32px]"
+            style={{
+              background:
+                "linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.025) 60%, rgba(13,52,112,0.15) 100%)",
+              boxShadow:
+                "inset 0 1px 0 rgba(255,255,255,0.07), 0 25px 50px rgba(0,0,0,0.35)",
+              backdropFilter: "blur(20px)",
+            }}
+          >
 
-          <div className="grid lg:grid-cols-2">
+            {/* SHIMMER */}
+            <div
+              className="absolute left-5 right-5 top-0 h-px"
+              style={{
+                background:
+                  "linear-gradient(to right, transparent, rgba(255,215,0,0.3), transparent)",
+              }}
+            />
 
-            {/* FOTO */}
-            <div className="relative min-h-[420px] overflow-hidden">
+            {/* CARD GLOW */}
+            <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-yellow-300/10 blur-3xl" />
 
-              <Image
-                src="/angkatan.png"
-                alt="Foto Angkatan"
-                fill
-                priority
-                className="object-cover"
-              />
+            <div className="grid lg:grid-cols-2">
 
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#071f3d]/90 via-[#071f3d]/20 to-transparent" />
+              {/* ===== FOTO ===== */}
+              <div className="relative min-h-[420px] overflow-hidden">
 
-              {/* BADGE */}
-              <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-md">
-
-                <p className="text-[10px] tracking-[0.35em] text-white/90">
-                  SMK TELKOM MALANG
-                </p>
-
-              </div>
-
-              {/* BOTTOM TAG */}
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-white/20 bg-white/10 px-5 py-2 backdrop-blur-md">
-
-                <p className="text-sm text-white/90">
-                  LUMINEX 2026
-                </p>
-
-              </div>
-
-            </div>
-
-            {/* RIGHT SIDE */}
-            <div className="flex flex-col justify-center px-6 py-10 text-center lg:px-10 lg:text-left">
-
-              {/* CHECK ICON */}
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-yellow-300/30 bg-yellow-300/10 lg:mx-0">
-
-                <Check
-                  size={30}
-                  className="text-yellow-300"
+                <Image
+                  src="/angkatan.png"
+                  alt="Foto Angkatan"
+                  fill
+                  priority
+                  className="object-cover"
                 />
 
+                {/* OVERLAY */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#050f20]/95 via-[#050f20]/25 to-transparent" />
+
+                {/* BADGE */}
+                <div className="absolute left-5 top-5 rounded-full border border-white/15 bg-black/20 px-4 py-2 backdrop-blur-md">
+
+                  <p className="text-[10px] tracking-[0.35em] text-white/90">
+                    SMK TELKOM MALANG
+                  </p>
+
+                </div>
+
+                {/* BOTTOM TAG */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-white/15 bg-white/10 px-5 py-2 backdrop-blur-md">
+
+                  <p className="text-sm text-white/90">
+                    LUMINEX 2026
+                  </p>
+
+                </div>
+
               </div>
 
-              {/* TITLE */}
-              <h2
-                className="mt-8 text-white"
-                style={{
-                  fontFamily:
-                    "'Playfair Display', serif",
-                  fontSize:
-                    "clamp(38px, 8vw, 64px)",
-                  lineHeight: 1,
-                }}
-              >
-                Graduation
-                <br />
-                Ceremony
-              </h2>
+              {/* ===== RIGHT SIDE ===== */}
+              <div className="flex flex-col justify-center px-6 py-10 text-center lg:px-10 lg:text-left">
 
-              {/* TEXT */}
-              <p className="mt-6 text-sm leading-8 text-white/70 md:text-base">
-                Wisuda Angkatan XXXII
-                <br />
-                LUMINEX 2026
-                <br />
-                SMK Telkom Malang
-              </p>
+                {/* ICON */}
+                <div
+                  className="mx-auto flex h-16 w-16 items-center justify-center rounded-full lg:mx-0"
+                  style={{
+                    background:
+                      "rgba(255,215,0,0.08)",
+                    border:
+                      "1px solid rgba(255,215,0,0.2)",
+                    boxShadow:
+                      "inset 0 1px 0 rgba(255,215,0,0.1)",
+                  }}
+                >
 
-              {/* QUOTE */}
-              <div className="mt-8 rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-md">
+                  <Check
+                    size={30}
+                    className="text-yellow-300"
+                  />
 
-                <p className="text-sm italic leading-7 text-white/70">
-                  “Every ending is the beginning
-                  of a new journey.”
+                </div>
+
+                {/* TITLE */}
+                <h2
+                  className="mt-8 text-white"
+                  style={{
+                    fontFamily:
+                      "'Cinzel', serif",
+                    fontSize:
+                      "clamp(38px, 8vw, 64px)",
+                    lineHeight: 1,
+                    letterSpacing: "0.06em",
+                  }}
+                >
+                  Graduation
+                  <br />
+                  Ceremony
+                </h2>
+
+                {/* TEXT */}
+                <p
+                  className="mt-6 text-sm leading-8 text-white/45 md:text-base"
+                  style={{
+                    fontFamily:
+                      "'Cormorant Garamond', Georgia, serif",
+                  }}
+                >
+                  Wisuda Angkatan XXXII
+                  <br />
+                  LUMINEX 2026
+                  <br />
+                  SMK Telkom Malang
                 </p>
 
-              </div>
+                {/* QUOTE */}
+                <div
+                  className="mt-8 rounded-[24px] p-5"
+                  style={{
+                    background:
+                      "rgba(255,255,255,0.05)",
+                    border:
+                      "1px solid rgba(255,255,255,0.08)",
+                    backdropFilter: "blur(20px)",
+                  }}
+                >
 
-              {/* BUTTONS */}
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+                  <p className="text-sm italic leading-7 text-white/60">
+                    “Every ending is the beginning
+                    of a new journey.”
+                  </p>
 
-                <button className="inline-flex items-center justify-center gap-3 rounded-full bg-yellow-300 px-7 py-4 text-sm font-bold text-[#071f3d] shadow-[0_0_30px_rgba(255,215,0,0.25)] transition duration-300 hover:scale-[1.02] active:scale-95">
+                </div>
 
-                  <Sparkles size={18} />
+                {/* BUTTONS */}
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row">
 
-                  Sampai Jumpa
+                  <button
+                    className="inline-flex items-center justify-center gap-3 rounded-full px-7 py-4 text-sm font-bold text-[#050f20] transition duration-300 hover:scale-[1.02] active:scale-95"
+                    style={{
+                      fontFamily: "'Cinzel', serif",
+                      letterSpacing: "0.08em",
+                      background:
+                        "linear-gradient(135deg, #ffd700 0%, #f0c000 100%)",
+                      boxShadow:
+                        "0 0 0 1px rgba(255,215,0,0.3), 0 8px 20px rgba(255,215,0,0.2)",
+                    }}
+                  >
 
-                </button>
+                    <Sparkles size={18} />
 
-                <button className="rounded-full border border-white/15 bg-white/5 px-7 py-4 text-sm font-semibold text-white/80 backdrop-blur-md transition hover:bg-white/10">
-                  Angkatan 32
-                </button>
+                    Sampai Jumpa
+
+                  </button>
+
+                  <button className="rounded-full border border-white/10 bg-white/5 px-7 py-4 text-sm font-semibold text-white/70 backdrop-blur-md transition hover:bg-white/10">
+                    Angkatan 32
+                  </button>
+
+                </div>
 
               </div>
 
@@ -207,7 +295,7 @@ export default function ThanksPage() {
 
         </div>
 
-        {/* ORNAMENT */}
+        {/* ===== ORNAMENT ===== */}
         <div className="mt-12 flex flex-wrap justify-center gap-5">
 
           {["✦", "✧", "⋆", "✧", "✦"].map(
@@ -215,7 +303,7 @@ export default function ThanksPage() {
               <span
                 key={i}
                 style={{
-                  fontSize: 18,
+                  fontSize: 16,
                   textShadow:
                     "0 0 10px rgba(255,215,0,0.8)",
                   animation: `float 2.5s ease-in-out ${
@@ -234,16 +322,16 @@ export default function ThanksPage() {
 
         </div>
 
-        {/* FOOTER */}
+        {/* ===== FOOTER ===== */}
         <p className="mt-10 text-xs tracking-[0.35em] text-yellow-300/60">
           LUMINEX · SEE YOU SOON
         </p>
 
       </div>
 
-      {/* STYLE */}
+      {/* ===== STYLE ===== */}
       <style jsx>{`
-        @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+        @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cormorant+Garamond:wght@300;400;600&display=swap");
 
         @keyframes float {
           0%,
@@ -259,4 +347,32 @@ export default function ThanksPage() {
 
     </main>
   );
+
+  function Divider() {
+  return (
+    <div className="my-8 flex items-center gap-3">
+
+      <div
+        className="h-px w-16"
+        style={{
+          background:
+            "linear-gradient(to right, transparent, rgba(255,215,0,0.7))",
+        }}
+      />
+
+      <span className="text-yellow-300">
+        ◆
+      </span>
+
+      <div
+        className="h-px w-16"
+        style={{
+          background:
+            "linear-gradient(to left, transparent, rgba(255,215,0,0.7))",
+        }}
+      />
+
+    </div>
+  );
+}
 }

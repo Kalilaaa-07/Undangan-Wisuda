@@ -14,26 +14,52 @@ export default function GlobalMusic() {
 
     const startMusic = async () => {
       try {
-        await audio.play();
+        if (audio.paused) {
+          await audio.play();
+        }
       } catch (err) {
         console.log("Autoplay gagal");
       }
     };
 
-    // coba autoplay
+    // autoplay pertama
     startMusic();
 
-    // fallback pas user klik dimana aja
-    document.addEventListener("click", startMusic);
+    // fallback kalau autoplay diblok browser
+    const handleUserInteract = () => {
+      startMusic();
+
+      // setelah berhasil langsung hapus listener
+      document.removeEventListener(
+        "click",
+        handleUserInteract
+      );
+    };
+
+    document.addEventListener(
+      "click",
+      handleUserInteract
+    );
 
     return () => {
-      document.removeEventListener("click", startMusic);
+      document.removeEventListener(
+        "click",
+        handleUserInteract
+      );
     };
   }, []);
 
   return (
-    <audio ref={audioRef} loop autoPlay hidden>
-      <source src="/music1.mp3" type="audio/mpeg" />
+    <audio
+      ref={audioRef}
+      loop
+      preload="auto"
+      hidden
+    >
+      <source
+        src="/music1.mp3"
+        type="audio/mpeg"
+      />
     </audio>
   );
 }
