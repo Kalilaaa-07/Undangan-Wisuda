@@ -1,352 +1,262 @@
 "use client";
 
 import Image from "next/image";
-
-import {
-  Check,
-  Sparkles,
-} from "lucide-react";
-
-import BottomNav from "@/components/BottonNav";
+import { Check, Sparkles } from "lucide-react";
 
 export default function ThanksPage() {
   return (
-    <>
-      <main className="relative min-h-screen overflow-hidden bg-[#071f3d] pb-36 text-white">
+    <main className="relative min-h-screen overflow-hidden bg-[#071f3d] text-white">
 
-        {/* ===== BACKGROUND ===== */}
-        <div
-          className="absolute inset-0 z-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at center, #1450a8 0%, #0c3c78 45%, #071f3d 100%)",
-          }}
-        />
+      {/* BACKGROUND */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at top, #1450a8 0%, #0c3c78 40%, #071f3d 100%)",
+        }}
+      />
 
-        {/* ===== MAIN GLOW ===== */}
-        <div
-          className="absolute left-1/2 top-20 z-[1] h-72 w-72 -translate-x-1/2 rounded-full blur-3xl md:h-96 md:w-96"
-          style={{
-            background:
-              "radial-gradient(circle, rgba(255,215,0,0.16) 0%, transparent 70%)",
-          }}
-        />
+      {/* GLOW */}
+      <div className="absolute left-1/2 top-0 h-[350px] w-[350px] -translate-x-1/2 rounded-full bg-yellow-300/10 blur-3xl" />
 
-        {/* ===== FLOATING LIGHTS ===== */}
-        <div className="absolute left-6 top-20 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
+      <div className="absolute bottom-0 left-0 h-72 w-72 rounded-full bg-blue-400/10 blur-3xl" />
 
-        <div className="absolute right-6 top-40 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
+      <div className="absolute right-0 top-1/3 h-72 w-72 rounded-full bg-yellow-300/10 blur-3xl" />
 
-        <div className="absolute bottom-52 left-10 h-1.5 w-1.5 rounded-full bg-yellow-300 shadow-[0_0_15px_gold]" />
+      {/* FLOATING LIGHTS */}
+      <div className="absolute left-8 top-24 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
-        <div className="absolute bottom-40 right-10 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
+      <div className="absolute right-10 top-40 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
-        {/* ===== LEFT ORNAMENT ===== */}
-        <div className="absolute left-2 top-[320px] z-[1] hidden rotate-[-12deg] opacity-70 lg:block">
+      <div className="absolute bottom-32 left-10 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
 
-          <div className="rounded-[28px] border border-yellow-300/20 bg-white/5 px-5 py-4 backdrop-blur-md">
+      {/* CONTENT */}
+      <div className="relative z-10 mx-auto flex max-w-6xl flex-col items-center px-5 py-12 text-center">
 
-            <p className="text-[10px] tracking-[0.35em] text-yellow-300/70">
-              LUMINEX
-            </p>
+        {/* TOP BADGE */}
+        <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-yellow-300/20 bg-yellow-300/10 px-5 py-2 backdrop-blur-md">
 
-            <div className="mt-3 h-px w-16 bg-yellow-300/40" />
+          <Sparkles
+            size={14}
+            className="text-yellow-300"
+          />
 
-            <p className="mt-3 text-xs leading-5 text-white/60">
-              Graduation
-              <br />
-              Ceremony
-            </p>
-
-          </div>
+          <p className="text-[10px] tracking-[0.35em] text-yellow-300/80 md:text-xs">
+            LUMINEX · ANGKATAN 32
+          </p>
 
         </div>
 
-        {/* ===== RIGHT ORNAMENT ===== */}
-        <div className="absolute right-4 top-[520px] z-[1] hidden rotate-[10deg] opacity-80 lg:block">
+        {/* TITLE */}
+        <h1
+          className="text-white"
+          style={{
+            fontFamily:
+              "'Playfair Display', serif",
+            fontSize:
+              "clamp(56px, 11vw, 100px)",
+            fontWeight: 900,
+            lineHeight: 0.95,
+            textShadow:
+              "0 0 35px rgba(255,255,255,0.15)",
+          }}
+        >
+          Thank
+          <br />
+          You
+        </h1>
 
-          <div className="rounded-full border border-yellow-300/25 bg-yellow-300/10 p-5 backdrop-blur-md shadow-[0_0_30px_rgba(255,215,0,0.15)]">
+        {/* SUBTITLE */}
+        <p className="mt-5 max-w-md text-sm leading-7 text-white/70 md:text-base">
+          Terima kasih atas kehadiran,
+          doa, dan dukungannya dalam
+          perjalanan kami.
+        </p>
 
-            <Sparkles
-              size={28}
-              className="text-yellow-300"
-            />
+        {/* DIVIDER */}
+        <div className="my-8 flex items-center gap-3">
 
-          </div>
+          <div className="h-px w-16 bg-gradient-to-r from-transparent to-yellow-300/70" />
+
+          <span className="text-yellow-300">
+            ◆
+          </span>
+
+          <div className="h-px w-16 bg-gradient-to-l from-transparent to-yellow-300/70" />
 
         </div>
 
-        {/* ===== EXTRA GLOW ===== */}
-        <div className="absolute bottom-32 right-10 hidden h-32 w-32 rounded-full bg-yellow-300/10 blur-3xl md:block" />
+        {/* MAIN CARD */}
+        <div
+          className="relative w-full max-w-5xl overflow-hidden rounded-[36px] border border-yellow-300/20 backdrop-blur-xl"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))",
+            boxShadow:
+              "0 0 50px rgba(0,0,0,0.25)",
+          }}
+        >
 
-        <div className="absolute left-0 top-[65%] hidden h-40 w-40 rounded-full bg-blue-400/10 blur-3xl md:block" />
+          {/* CARD GLOW */}
+          <div className="absolute right-0 top-0 h-56 w-56 rounded-full bg-yellow-300/10 blur-3xl" />
 
-        {/* ===== CONTENT ===== */}
-        <div className="relative z-10 mx-auto flex max-w-lg flex-col items-center px-5 pt-14 text-center">
+          <div className="grid lg:grid-cols-2">
 
-          {/* ===== HEADER ===== */}
-          <div>
-
-            <p
-              className="text-[10px] text-yellow-300/70"
-              style={{
-                letterSpacing: "0.45em",
-                fontFamily: "serif",
-              }}
-            >
-              ✦ LUMINEX · ANGKATAN 32 ✦
-            </p>
-
-            <h1
-              className="mt-5 text-white"
-              style={{
-                fontFamily:
-                  "'Playfair Display', serif",
-                fontSize:
-                  "clamp(52px, 13vw, 88px)",
-                fontWeight: 900,
-                lineHeight: 0.95,
-                textShadow:
-                  "0 0 30px rgba(255,255,255,0.18)",
-              }}
-            >
-              Thank
-              <br />
-              You
-            </h1>
-
-            <p className="mt-5 text-sm leading-relaxed text-white/70">
-              Hormat Kami
-              <br />
-              Yang Mengundang
-            </p>
-
-            <Divider />
-
-          </div>
-
-          {/* ===== CARD ===== */}
-          <div
-            className="relative mt-8 w-full max-w-sm overflow-hidden rounded-[32px] border border-yellow-300/20 p-7 backdrop-blur-xl md:p-8"
-            style={{
-              background:
-                "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03))",
-              boxShadow:
-                "0 0 40px rgba(0,0,0,0.2)",
-            }}
-          >
-
-            {/* ===== CARD GLOW ===== */}
-            <div className="absolute right-0 top-0 h-40 w-40 rounded-full bg-yellow-300/5 blur-3xl" />
-
-            {/* ===== CHECK ICON ===== */}
-            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-yellow-300/30 bg-yellow-300/10">
-
-              <Check
-                size={30}
-                className="text-yellow-300"
-              />
-
-            </div>
-
-            {/* ===== LOGO ===== */}
-            <div className="mt-8">
+            {/* FOTO */}
+            <div className="relative min-h-[420px] overflow-hidden">
 
               <Image
-                src="/telkom.png"
-                alt="SMK Telkom"
-                width={110}
-                height={110}
-                className="mx-auto object-contain"
+                src="/angkatan.png"
+                alt="Foto Angkatan"
+                fill
+                priority
+                className="object-cover"
               />
 
-            </div>
+              {/* OVERLAY */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#071f3d]/90 via-[#071f3d]/20 to-transparent" />
 
-            {/* ===== TITLE ===== */}
-            <h2
-              className="mt-7 text-white"
-              style={{
-                fontFamily:
-                  "'Playfair Display', serif",
-                fontSize:
-                  "clamp(34px, 8vw, 52px)",
-                lineHeight: 1.1,
-              }}
-            >
-              SMK Telkom
-              <br />
-              Malang
-            </h2>
+              {/* BADGE */}
+              <div className="absolute left-5 top-5 rounded-full border border-white/20 bg-black/20 px-4 py-2 backdrop-blur-md">
 
-            {/* ===== SUBTITLE ===== */}
-            <p className="mt-5 text-sm leading-7 text-white/65">
-              Wisuda Angkatan XXXII
-              <br />
-              LUMINEX 2026
-            </p>
+                <p className="text-[10px] tracking-[0.35em] text-white/90">
+                  SMK TELKOM MALANG
+                </p>
 
-            {/* ===== BUTTON ===== */}
-            <button className="mt-8 inline-flex items-center gap-3 rounded-full border border-yellow-300/30 bg-yellow-300 px-6 py-3 text-sm font-bold text-[#071f3d] shadow-2xl transition active:scale-95">
+              </div>
 
-              <Sparkles size={18} />
+              {/* BOTTOM TAG */}
+              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 rounded-full border border-white/20 bg-white/10 px-5 py-2 backdrop-blur-md">
 
-              Sampai Jumpa
+                <p className="text-sm text-white/90">
+                  LUMINEX 2026
+                </p>
 
-            </button>
-
-          </div>
-
-          {/* ===== BOTTOM ORNAMENTS ===== */}
-          <div className="relative mt-14 w-full max-w-5xl">
-
-            {/* LEFT */}
-            <div className="absolute left-0 top-1/2 hidden -translate-y-1/2 items-center gap-3 opacity-70 md:flex">
-
-              <div className="h-px w-24 bg-gradient-to-r from-transparent to-yellow-300/70" />
-
-              <div className="h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_15px_gold]" />
+              </div>
 
             </div>
 
-            {/* RIGHT */}
-            <div className="absolute right-0 top-1/2 hidden -translate-y-1/2 items-center gap-3 opacity-70 md:flex">
+            {/* RIGHT SIDE */}
+            <div className="flex flex-col justify-center px-6 py-10 text-center lg:px-10 lg:text-left">
 
-              <div className="h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_15px_gold]" />
+              {/* CHECK ICON */}
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-yellow-300/30 bg-yellow-300/10 lg:mx-0">
 
-              <div className="h-px w-24 bg-gradient-to-l from-transparent to-yellow-300/70" />
+                <Check
+                  size={30}
+                  className="text-yellow-300"
+                />
 
-            </div>
+              </div>
 
-            {/* CENTER BADGE */}
-            <div className="mx-auto w-fit rounded-full border border-yellow-300/20 bg-white/5 px-6 py-2 backdrop-blur-md">
+              {/* TITLE */}
+              <h2
+                className="mt-8 text-white"
+                style={{
+                  fontFamily:
+                    "'Playfair Display', serif",
+                  fontSize:
+                    "clamp(38px, 8vw, 64px)",
+                  lineHeight: 1,
+                }}
+              >
+                Graduation
+                <br />
+                Ceremony
+              </h2>
 
-              <p className="text-[10px] tracking-[0.35em] text-yellow-300/70">
-                SEE YOU SOON
+              {/* TEXT */}
+              <p className="mt-6 text-sm leading-8 text-white/70 md:text-base">
+                Wisuda Angkatan XXXII
+                <br />
+                LUMINEX 2026
+                <br />
+                SMK Telkom Malang
               </p>
 
-            </div>
+              {/* QUOTE */}
+              <div className="mt-8 rounded-[24px] border border-white/10 bg-white/5 p-5 backdrop-blur-md">
 
-          </div>
+                <p className="text-sm italic leading-7 text-white/70">
+                  “Every ending is the beginning
+                  of a new journey.”
+                </p>
 
-          {/* ===== MODERN BOTTOM DECOR ===== */}
+              </div>
 
-          {/* LEFT GLOW LINE */}
-          <div className="pointer-events-none absolute bottom-28 left-0 hidden w-[340px] lg:block">
+              {/* BUTTONS */}
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
 
-            <div className="relative h-[160px]">
+                <button className="inline-flex items-center justify-center gap-3 rounded-full bg-yellow-300 px-7 py-4 text-sm font-bold text-[#071f3d] shadow-[0_0_30px_rgba(255,215,0,0.25)] transition duration-300 hover:scale-[1.02] active:scale-95">
 
-              <div className="absolute bottom-0 left-[-60px] h-[2px] w-[340px] rotate-[12deg] rounded-full bg-gradient-to-r from-transparent via-yellow-300/60 to-transparent blur-[1px]" />
+                  <Sparkles size={18} />
 
-              <div className="absolute bottom-8 left-[-20px] h-[1px] w-[280px] rotate-[18deg] rounded-full bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+                  Sampai Jumpa
 
-              <div className="absolute bottom-16 left-10 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
+                </button>
 
-            </div>
+                <button className="rounded-full border border-white/15 bg-white/5 px-7 py-4 text-sm font-semibold text-white/80 backdrop-blur-md transition hover:bg-white/10">
+                  Angkatan 32
+                </button>
 
-          </div>
-
-          {/* RIGHT GLOW LINE */}
-          <div className="pointer-events-none absolute bottom-28 right-0 hidden w-[340px] lg:block">
-
-            <div className="relative h-[160px]">
-
-              <div className="absolute bottom-0 right-[-60px] h-[2px] w-[340px] rotate-[-12deg] rounded-full bg-gradient-to-l from-transparent via-yellow-300/60 to-transparent blur-[1px]" />
-
-              <div className="absolute bottom-8 right-[-20px] h-[1px] w-[280px] rotate-[-18deg] rounded-full bg-gradient-to-l from-transparent via-white/40 to-transparent" />
-
-              <div className="absolute bottom-16 right-10 h-2 w-2 rounded-full bg-yellow-300 shadow-[0_0_20px_gold]" />
+              </div>
 
             </div>
-
-          </div>
-
-          {/* ===== QUOTE ===== */}
-          <div className="mt-10 text-center">
-
-            <p className="text-sm italic leading-7 text-white/55">
-              “Terima kasih atas kehadiran
-              <br />
-              dan dukungannya.”
-            </p>
-
-          </div>
-
-          {/* ===== SPARKLES ===== */}
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-
-            {["✦", "✧", "⋆", "✧", "✦"].map(
-              (s, i) => (
-                <span
-                  key={i}
-                  style={{
-                    fontSize: 18,
-                    textShadow:
-                      "0 0 10px rgba(255,215,0,0.8)",
-                    animation: `float 2.5s ease-in-out ${
-                      i * 0.2
-                    }s infinite`,
-                    color:
-                      i % 2 === 1
-                        ? "#ffffff"
-                        : "#ffd700",
-                  }}
-                >
-                  {s}
-                </span>
-              )
-            )}
 
           </div>
 
         </div>
 
-        {/* ===== STYLE ===== */}
-        <style jsx>{`
-          @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+        {/* ORNAMENT */}
+        <div className="mt-12 flex flex-wrap justify-center gap-5">
 
-          @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0px);
-            }
+          {["✦", "✧", "⋆", "✧", "✦"].map(
+            (s, i) => (
+              <span
+                key={i}
+                style={{
+                  fontSize: 18,
+                  textShadow:
+                    "0 0 10px rgba(255,215,0,0.8)",
+                  animation: `float 2.5s ease-in-out ${
+                    i * 0.2
+                  }s infinite`,
+                  color:
+                    i % 2 === 1
+                      ? "#ffffff"
+                      : "#ffd700",
+                }}
+              >
+                {s}
+              </span>
+            )
+          )}
 
-            50% {
-              transform: translateY(-8px);
-            }
+        </div>
+
+        {/* FOOTER */}
+        <p className="mt-10 text-xs tracking-[0.35em] text-yellow-300/60">
+          LUMINEX · SEE YOU SOON
+        </p>
+
+      </div>
+
+      {/* STYLE */}
+      <style jsx>{`
+        @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&display=swap");
+
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px);
           }
-        `}</style>
 
-      </main>
+          50% {
+            transform: translateY(-8px);
+          }
+        }
+      `}</style>
 
-      <BottomNav />
-    </>
-  );
-}
-
-function Divider() {
-  return (
-    <div className="my-7 flex items-center justify-center gap-3">
-
-      <div
-        className="h-px w-16 md:w-20"
-        style={{
-          background:
-            "linear-gradient(to right, transparent, rgba(255,215,0,0.7))",
-        }}
-      />
-
-      <span className="text-xs text-yellow-400">
-        ◆
-      </span>
-
-      <div
-        className="h-px w-16 md:w-20"
-        style={{
-          background:
-            "linear-gradient(to left, transparent, rgba(255,215,0,0.7))",
-        }}
-      />
-
-    </div>
+    </main>
   );
 }
