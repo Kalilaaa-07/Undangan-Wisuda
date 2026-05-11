@@ -75,259 +75,273 @@ export default function RSVPPage() {
     );
   }, [dataTamu]);
 
-  /* ================= DOWNLOAD QR ================= */
-  const downloadQR = async () => {
-    const qrCanvas = document.getElementById(
-      "qr-code"
-    ) as HTMLCanvasElement;
+/* ================= DOWNLOAD QR ================= */
+const downloadQR = async () => {
+  const qrCanvas = document.getElementById(
+    "qr-code"
+  ) as HTMLCanvasElement;
 
-    if (!qrCanvas) return;
+  if (!qrCanvas) return;
 
-    const canvas =
-      document.createElement("canvas");
+  const canvas =
+    document.createElement("canvas");
 
-    const ctx = canvas.getContext("2d");
+  const ctx = canvas.getContext("2d");
 
-    if (!ctx) return;
+  if (!ctx) return;
 
-    canvas.width = 1200;
-    canvas.height = 1600;
+  canvas.width = 1200;
+  canvas.height = 1600;
 
-    /* background */
-    const gradient =
-      ctx.createLinearGradient(
-        0,
-        0,
-        0,
-        1600
-      );
-
-    gradient.addColorStop(0, "#071840");
-    gradient.addColorStop(1, "#050f20");
-
-    ctx.fillStyle = gradient;
-
-    ctx.fillRect(
+  /* background */
+  const gradient =
+    ctx.createLinearGradient(
       0,
       0,
-      canvas.width,
-      canvas.height
+      0,
+      1600
     );
 
-    /* glow */
-    const glow =
-      ctx.createRadialGradient(
-        600,
-        300,
-        50,
-        600,
-        300,
-        500
-      );
+  gradient.addColorStop(0, "#071840");
+  gradient.addColorStop(1, "#050f20");
 
-    glow.addColorStop(
-      0,
-      "rgba(255,215,0,0.15)"
-    );
+  ctx.fillStyle = gradient;
 
-    glow.addColorStop(
-      1,
-      "rgba(255,215,0,0)"
-    );
+  ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
 
-    ctx.fillStyle = glow;
-
-    ctx.fillRect(
-      0,
-      0,
-      canvas.width,
-      canvas.height
-    );
-
-    /* title */
-    ctx.fillStyle = "#ffd700";
-
-    ctx.textAlign = "center";
-
-    ctx.font = "bold 64px serif";
-
-    ctx.fillText(
-      "E-TICKET RSVP",
+  /* glow */
+  const glow =
+    ctx.createRadialGradient(
       600,
-      140
-    );
-
-    /* subtitle */
-    ctx.fillStyle =
-      "rgba(255,255,255,0.7)";
-
-    ctx.font = "28px sans-serif";
-
-    ctx.fillText(
-      "LUMINEX • ANGKATAN 32",
-      600,
-      200
-    );
-
-    /* card */
-    ctx.fillStyle = "#ffffff";
-
-    ctx.beginPath();
-
-    ctx.roundRect(
-      150,
       300,
-      900,
-      900,
-      42
-    );
-
-    ctx.fill();
-
-    /* qr */
-    ctx.drawImage(
-      qrCanvas,
-      260,
-      410,
-      680,
-      680
-    );
-
-    /* nama */
-    ctx.fillStyle = "#ffffff";
-
-    ctx.font = "bold 44px serif";
-
-    ctx.fillText(
-      lastSaved?.nama || "Tamu",
+      50,
       600,
-      1350
+      300,
+      500
     );
 
-    /* kelas */
-    ctx.fillStyle =
-      "rgba(255,255,255,0.75)";
+  glow.addColorStop(
+    0,
+    "rgba(255,215,0,0.15)"
+  );
 
-    ctx.font = "30px sans-serif";
+  glow.addColorStop(
+    1,
+    "rgba(255,215,0,0)"
+  );
 
-    ctx.fillText(
-      lastSaved?.kelas || "",
-      600,
-      1410
+  ctx.fillStyle = glow;
+
+  ctx.fillRect(
+    0,
+    0,
+    canvas.width,
+    canvas.height
+  );
+
+  /* title */
+  ctx.fillStyle = "#ffd700";
+
+  ctx.textAlign = "center";
+
+  ctx.font = "bold 64px serif";
+
+  ctx.fillText(
+    "E-TICKET RSVP",
+    600,
+    140
+  );
+
+  /* subtitle */
+  ctx.fillStyle =
+    "rgba(255,255,255,0.7)";
+
+  ctx.font = "28px sans-serif";
+
+  ctx.fillText(
+    "LUMINEX • ANGKATAN 32",
+    600,
+    200
+  );
+
+  /* card */
+  ctx.fillStyle = "#ffffff";
+
+  ctx.beginPath();
+
+  ctx.roundRect(
+    150,
+    300,
+    900,
+    900,
+    42
+  );
+
+  ctx.fill();
+
+  /* qr */
+  ctx.drawImage(
+    qrCanvas,
+    260,
+    410,
+    680,
+    680
+  );
+
+  /* nama */
+  ctx.fillStyle = "#ffffff";
+
+  ctx.font = "bold 44px serif";
+
+  ctx.fillText(
+    lastSaved?.nama || "Tamu",
+    600,
+    1350
+  );
+
+  /* kelas */
+  ctx.fillStyle =
+    "rgba(255,255,255,0.75)";
+
+  ctx.font = "30px sans-serif";
+
+  ctx.fillText(
+    lastSaved?.kelas || "",
+    600,
+    1410
+  );
+
+  /* wali */
+  ctx.fillStyle =
+    "rgba(255,255,255,0.55)";
+
+  ctx.font = "26px sans-serif";
+
+  ctx.fillText(
+    `Maksimal ${lastSaved?.wali} wali`,
+    600,
+    1470
+  );
+
+  const dataUrl =
+    canvas.toDataURL("image/png");
+
+  const isMobile =
+    /Android|iPhone|iPad|iPod/i.test(
+      navigator.userAgent
     );
 
-    /* wali */
-    ctx.fillStyle =
-      "rgba(255,255,255,0.55)";
+  /* MOBILE */
+  if (isMobile) {
+    const newTab = window.open();
 
-    ctx.font = "26px sans-serif";
-
-    ctx.fillText(
-      `Maksimal ${lastSaved?.wali} wali`,
-      600,
-      1470
-    );
-
-    /* image */
-    const dataUrl =
-      canvas.toDataURL("image/png");
-
-    /* detect device */
-    const isMobile =
-      /Android|iPhone|iPad|iPod/i.test(
-        navigator.userAgent
+    if (!newTab) {
+      alert(
+        "Popup diblokir browser."
       );
-
-    /* mobile */
-    if (isMobile) {
-      const newTab = window.open();
-
-      if (!newTab) {
-        alert(
-          "Popup diblokir browser."
-        );
-
-        return;
-      }
-
-      newTab.document.write(`
-        <html>
-          <head>
-            <title>QR RSVP</title>
-
-            <meta
-              name="viewport"
-              content="width=device-width, initial-scale=1.0"
-            />
-
-            <style>
-              body{
-                margin:0;
-                background:#050f20;
-                display:flex;
-                justify-content:center;
-                align-items:center;
-                min-height:100vh;
-                padding:20px;
-                box-sizing:border-box;
-              }
-
-              .wrapper{
-                width:100%;
-                max-width:520px;
-                text-align:center;
-              }
-
-              img{
-                width:100%;
-                border-radius:24px;
-                box-shadow:
-                  0 20px 60px rgba(0,0,0,0.45);
-              }
-
-              p{
-                margin-top:20px;
-                color:rgba(255,255,255,0.7);
-                font-family:sans-serif;
-                font-size:14px;
-                line-height:1.8;
-              }
-            </style>
-          </head>
-
-          <body>
-            <div class="wrapper">
-              <img src="${dataUrl}" />
-
-              <p>
-                Tekan & tahan gambar lalu pilih
-                <b>Simpan Gambar</b>
-              </p>
-            </div>
-          </body>
-        </html>
-      `);
 
       return;
     }
 
-    /* desktop */
-    const link =
-      document.createElement("a");
+    newTab.document.write(`
+      <html>
+        <head>
+          <title>QR RSVP</title>
 
-    link.href = dataUrl;
+          <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0"
+          />
 
-    link.download = `QR-${
-      lastSaved?.nama || "tamu"
-    }.png`;
+          <style>
+            body{
+              margin:0;
+              background:#050f20;
+              display:flex;
+              justify-content:center;
+              align-items:center;
+              min-height:100vh;
+              padding:20px;
+              box-sizing:border-box;
+            }
 
-    document.body.appendChild(link);
+            .wrapper{
+              width:100%;
+              max-width:520px;
+              text-align:center;
+            }
 
-    link.click();
+            img{
+              width:100%;
+              border-radius:24px;
+              box-shadow:
+                0 20px 60px rgba(0,0,0,0.45);
+            }
 
-    document.body.removeChild(link);
-  };
+            p{
+              margin-top:20px;
+              color:rgba(255,255,255,0.7);
+              font-family:sans-serif;
+              font-size:14px;
+              line-height:1.8;
+            }
 
+            button{
+              margin-top:20px;
+              border:none;
+              outline:none;
+              padding:14px 24px;
+              border-radius:999px;
+              background:#ffd700;
+              color:#050f20;
+              font-weight:bold;
+              font-size:14px;
+              cursor:pointer;
+            }
+          </style>
+        </head>
+
+        <body>
+          <div class="wrapper">
+            <img src="${dataUrl}" />
+
+            <p>
+              Tekan & tahan gambar lalu pilih
+              <b>Simpan Gambar</b>
+            </p>
+
+            <button onclick="window.close()">
+              Kembali ke RSVP
+            </button>
+          </div>
+        </body>
+      </html>
+    `);
+
+    return;
+  }
+
+  /* DESKTOP */
+  const link =
+    document.createElement("a");
+
+  link.href = dataUrl;
+
+  link.download = `QR-${
+    lastSaved?.nama || "tamu"
+  }.png`;
+
+  document.body.appendChild(link);
+
+  link.click();
+
+  document.body.removeChild(link);
+};
   /* ================= SUBMIT ================= */
   const handleSubmit = () => {
     if (
