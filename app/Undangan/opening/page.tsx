@@ -267,8 +267,7 @@ export default function OpeningPage() {
                 fontStyle: "italic",
               }}
             >
-              Sebuah malam penuh cahaya, kenangan, dan langkah awal menuju perjalanan baru yang lebih gemilang.
-            </p>
+Di bawah hangat cahaya pagi, terukir kisah tentang perjuangan, persahabatan, dan mimpi-mimpi yang perlahan menemukan jalannya. Hari ini menjadi awal dari langkah baru menuju masa depan yang penuh harapan dan gemilang.            </p>
 
             {/* inner divider */}
             <div className="my-6 flex items-center gap-3">
@@ -427,13 +426,13 @@ export default function OpeningPage() {
               className="text-sm leading-9 text-white/65"
               style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(14px,2.2vw,16px)" }}
             >
-              Terima kasih atas setiap doa, dukungan, dan perjuangan yang selalu mengiringi langkah kami.
+              Terima kasih atas setiap doa yang tak pernah terucap lelah, atas dukungan yang tetap hadir bahkan di saat langkah kami terasa rapuh, dan atas setiap perjuangan yang diam-diam dikorbankan demi mengantarkan kami sampai di titik ini.
             </p>
             <p
               className="mt-5 text-sm leading-9 text-white/65"
               style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(14px,2.2vw,16px)" }}
             >
-              Hari ini adalah bukti dari cinta, kesabaran, dan harapan yang telah tumbuh bersama selama perjalanan ini.
+              Hari ini bukan hanya tentang kelulusan, tetapi tentang cinta, kesabaran, air mata, dan harapan yang tumbuh bersama dalam setiap perjalanan yang telah kita lewati.
             </p>
           </div>
 

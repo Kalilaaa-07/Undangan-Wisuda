@@ -141,8 +141,8 @@ export default function Home() {
             {/* TEXT */}
             <p className="max-w-[520px] text-sm leading-8 text-white/75 sm:text-[15px] md:text-[17px] md:leading-9">
               Dengan hormat, kami mengundang
-              Anda untuk menghadiri acara
-              wisuda sebagai bentuk perayaan
+              Bapak dan Ibu sekalian untuk menghadiri
+              acara wisuda sebagai bentuk perayaan
               atas pencapaian generasi terbaik
               kami.
             </p>
