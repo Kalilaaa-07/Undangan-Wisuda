@@ -76,7 +76,7 @@ export default function RSVPPage() {
   }, [dataTamu]);
 
   /* ================= DOWNLOAD QR ================= */
-  const downloadQR = () => {
+  const downloadQR = async () => {
     const qrCanvas = document.getElementById(
       "qr-code"
     ) as HTMLCanvasElement;
@@ -90,12 +90,17 @@ export default function RSVPPage() {
 
     if (!ctx) return;
 
-    canvas.width = 700;
-    canvas.height = 900;
+    canvas.width = 1200;
+    canvas.height = 1600;
 
-    // background
+    /* background */
     const gradient =
-      ctx.createLinearGradient(0, 0, 0, 900);
+      ctx.createLinearGradient(
+        0,
+        0,
+        0,
+        1600
+      );
 
     gradient.addColorStop(0, "#071840");
     gradient.addColorStop(1, "#050f20");
@@ -109,74 +114,218 @@ export default function RSVPPage() {
       canvas.height
     );
 
-    // title
-    ctx.fillStyle = "#ffd700";
+    /* glow */
+    const glow =
+      ctx.createRadialGradient(
+        600,
+        300,
+        50,
+        600,
+        300,
+        500
+      );
 
-    ctx.font = "bold 38px serif";
+    glow.addColorStop(
+      0,
+      "rgba(255,215,0,0.15)"
+    );
+
+    glow.addColorStop(
+      1,
+      "rgba(255,215,0,0)"
+    );
+
+    ctx.fillStyle = glow;
+
+    ctx.fillRect(
+      0,
+      0,
+      canvas.width,
+      canvas.height
+    );
+
+    /* title */
+    ctx.fillStyle = "#ffd700";
 
     ctx.textAlign = "center";
 
-    ctx.fillText("E-TICKET RSVP", 350, 90);
+    ctx.font = "bold 64px serif";
 
-    // card putih
+    ctx.fillText(
+      "E-TICKET RSVP",
+      600,
+      140
+    );
+
+    /* subtitle */
+    ctx.fillStyle =
+      "rgba(255,255,255,0.7)";
+
+    ctx.font = "28px sans-serif";
+
+    ctx.fillText(
+      "LUMINEX • ANGKATAN 32",
+      600,
+      200
+    );
+
+    /* card */
     ctx.fillStyle = "#ffffff";
 
     ctx.beginPath();
 
-    ctx.roundRect(90, 160, 520, 520, 28);
+    ctx.roundRect(
+      150,
+      300,
+      900,
+      900,
+      42
+    );
 
     ctx.fill();
 
-    // qr
-    ctx.drawImage(qrCanvas, 170, 240, 360, 360);
+    /* qr */
+    ctx.drawImage(
+      qrCanvas,
+      260,
+      410,
+      680,
+      680
+    );
 
-    // nama
+    /* nama */
     ctx.fillStyle = "#ffffff";
 
-    ctx.font = "bold 28px serif";
+    ctx.font = "bold 44px serif";
 
     ctx.fillText(
       lastSaved?.nama || "Tamu",
-      350,
-      760
+      600,
+      1350
     );
 
-    // subtitle
+    /* kelas */
     ctx.fillStyle =
-      "rgba(255,255,255,0.7)";
+      "rgba(255,255,255,0.75)";
 
-    ctx.font = "18px sans-serif";
+    ctx.font = "30px sans-serif";
+
+    ctx.fillText(
+      lastSaved?.kelas || "",
+      600,
+      1410
+    );
+
+    /* wali */
+    ctx.fillStyle =
+      "rgba(255,255,255,0.55)";
+
+    ctx.font = "26px sans-serif";
 
     ctx.fillText(
       `Maksimal ${lastSaved?.wali} wali`,
-      350,
-      810
+      600,
+      1470
     );
 
-    // download
-    canvas.toBlob((blob) => {
-      if (!blob) return;
+    /* image */
+    const dataUrl =
+      canvas.toDataURL("image/png");
 
-      const url =
-        URL.createObjectURL(blob);
+    /* detect device */
+    const isMobile =
+      /Android|iPhone|iPad|iPod/i.test(
+        navigator.userAgent
+      );
 
-      const link =
-        document.createElement("a");
+    /* mobile */
+    if (isMobile) {
+      const newTab = window.open();
 
-      link.href = url;
+      if (!newTab) {
+        alert(
+          "Popup diblokir browser."
+        );
 
-      link.download = `QR-${
-        lastSaved?.nama || "tamu"
-      }.png`;
+        return;
+      }
 
-      document.body.appendChild(link);
+      newTab.document.write(`
+        <html>
+          <head>
+            <title>QR RSVP</title>
 
-      link.click();
+            <meta
+              name="viewport"
+              content="width=device-width, initial-scale=1.0"
+            />
 
-      document.body.removeChild(link);
+            <style>
+              body{
+                margin:0;
+                background:#050f20;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                min-height:100vh;
+                padding:20px;
+                box-sizing:border-box;
+              }
 
-      URL.revokeObjectURL(url);
-    }, "image/png");
+              .wrapper{
+                width:100%;
+                max-width:520px;
+                text-align:center;
+              }
+
+              img{
+                width:100%;
+                border-radius:24px;
+                box-shadow:
+                  0 20px 60px rgba(0,0,0,0.45);
+              }
+
+              p{
+                margin-top:20px;
+                color:rgba(255,255,255,0.7);
+                font-family:sans-serif;
+                font-size:14px;
+                line-height:1.8;
+              }
+            </style>
+          </head>
+
+          <body>
+            <div class="wrapper">
+              <img src="${dataUrl}" />
+
+              <p>
+                Tekan & tahan gambar lalu pilih
+                <b>Simpan Gambar</b>
+              </p>
+            </div>
+          </body>
+        </html>
+      `);
+
+      return;
+    }
+
+    /* desktop */
+    const link =
+      document.createElement("a");
+
+    link.href = dataUrl;
+
+    link.download = `QR-${
+      lastSaved?.nama || "tamu"
+    }.png`;
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    document.body.removeChild(link);
   };
 
   /* ================= SUBMIT ================= */
@@ -250,7 +399,7 @@ export default function RSVPPage() {
         />
 
         <div className="relative z-10 mx-auto max-w-md px-4 pt-12">
-          {/* ================= HEADER ================= */}
+          {/* HEADER */}
           <div className="text-center">
             <div
               className="inline-flex items-center gap-2 rounded-full border border-yellow-400/20 bg-yellow-400/5 px-4 py-1.5"
@@ -316,7 +465,7 @@ export default function RSVPPage() {
             </p>
           </div>
 
-          {/* ================= INTRO ================= */}
+          {/* INTRO */}
           {step === "intro" && (
             <div className="animate-fadein mt-8">
               <LuxCard>
@@ -332,21 +481,12 @@ export default function RSVPPage() {
                   style={{
                     fontFamily:
                       "'Cinzel', serif",
-
-                    fontSize:
-                      "clamp(20px,4vw,26px)",
                   }}
                 >
                   Konfirmasi Kehadiran
                 </h2>
 
-                <p
-                  className="mt-4 text-center leading-8 text-white/55"
-                  style={{
-                    fontFamily:
-                      "'Cormorant Garamond', Georgia, serif",
-                  }}
-                >
+                <p className="mt-4 text-center leading-8 text-white/55">
                   Silakan lakukan
                   konfirmasi kehadiran wali
                   wisuda.
@@ -368,7 +508,7 @@ export default function RSVPPage() {
             </div>
           )}
 
-          {/* ================= FORM ================= */}
+          {/* FORM */}
           {step === "form" && (
             <div className="animate-fadein mt-8">
               <LuxCard>
@@ -382,24 +522,17 @@ export default function RSVPPage() {
                   KEMBALI
                 </button>
 
-                <h2
-                  className="mb-6 text-white"
-                  style={{
-                    fontFamily:
-                      "'Cinzel', serif",
-                  }}
-                >
+                <h2 className="mb-6 text-white">
                   {editId
                     ? "Update Konfirmasi"
                     : "Isi Formulir"}
                 </h2>
 
                 <div className="space-y-4">
-                  {/* nama siswa */}
                   <FloatingInput
                     label="Nama Siswa"
                     value={form.nama}
-                    onChange={(v: any) =>
+                    onChange={(v: string) =>
                       setForm({
                         ...form,
                         nama: v,
@@ -572,7 +705,7 @@ export default function RSVPPage() {
                         setFocused("")
                       }
                       rows={4}
-                      className="w-full resize-none px-5 pt-6 pb-3 text-sm text-white outline-none placeholder-transparent transition-all"
+                      className="w-full resize-none px-5 pt-6 pb-3 text-sm text-white outline-none"
                       style={{
                         borderRadius: 16,
 
@@ -637,7 +770,7 @@ export default function RSVPPage() {
             </div>
           )}
 
-          {/* ================= DONE ================= */}
+          {/* DONE */}
           {step === "done" &&
             lastSaved && (
               <div className="animate-fadein mt-8">
@@ -650,16 +783,7 @@ export default function RSVPPage() {
                       />
                     </div>
 
-                    <h2
-                      className="text-white"
-                      style={{
-                        fontFamily:
-                          "'Cinzel', serif",
-
-                        fontSize:
-                          "clamp(32px,8vw,52px)",
-                      }}
-                    >
+                    <h2 className="text-white">
                       Terima Kasih
                     </h2>
 
@@ -668,7 +792,6 @@ export default function RSVPPage() {
                       disimpan.
                     </p>
 
-                    {/* qr */}
                     {lastSaved.hadir ===
                       "Hadir" && (
                       <div className="mt-8 w-full">
@@ -705,7 +828,6 @@ export default function RSVPPage() {
                           </div>
                         </div>
 
-                        {/* download */}
                         <button
                           onClick={
                             downloadQR
@@ -725,7 +847,7 @@ export default function RSVPPage() {
               </div>
             )}
 
-          {/* ================= DAFTAR UCAPAN ================= */}
+          {/* UCAPAN */}
           {dataTamu.length > 0 && (
             <div className="mt-10">
               <div className="mb-5 flex items-center gap-3">
@@ -749,7 +871,6 @@ export default function RSVPPage() {
                           "rgba(255,255,255,0.03)",
                       }}
                     >
-                      {/* header */}
                       <div className="flex items-center justify-between gap-4 px-5 py-4">
                         <div className="flex min-w-0 items-center gap-3">
                           <div
@@ -808,7 +929,6 @@ export default function RSVPPage() {
                         </span>
                       </div>
 
-                      {/* pesan */}
                       {item.pesan && (
                         <div className="border-t border-white/5 px-5 py-4">
                           <p className="text-xs italic leading-7 text-white/45">
@@ -821,7 +941,6 @@ export default function RSVPPage() {
                         </div>
                       )}
 
-                      {/* footer */}
                       <div className="flex items-center justify-between px-5 pb-4">
                         <p className="text-[10px] text-white/25">
                           {
@@ -850,25 +969,6 @@ export default function RSVPPage() {
             </div>
           )}
         </div>
-
-        <style jsx>{`
-          .animate-fadein {
-            animation: fadein 0.4s
-              ease-out forwards;
-          }
-
-          @keyframes fadein {
-            from {
-              opacity: 0;
-              transform: translateY(12px);
-            }
-
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        `}</style>
       </main>
 
       <BottomNav />
